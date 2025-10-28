@@ -1,0 +1,149 @@
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #ffeac2;
+    color: #3b3026;
+    font-family: monospace;
+}
+
+#titletext {
+    text-align: left;
+    font-size: 50px;
+}
+
+#contents {
+    justify-content: left;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.btn-click {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #3b3026;
+    background-color: #00000000;
+    font-size: 20px;
+    font-family: monospace;
+    margin-right: 20px;
+    transition: 0.3s;
+}
+
+.btn-click:hover {
+    background-color: #3b3026;
+    color: #ffeac2;
+    transition: 0.3s;
+    transform: scale(1.2);
+    border-radius: 100px;
+}
+
+#about {
+    margin-bottom: 100px;
+}
+
+#about p {
+    text-align: left;
+    font-size: 25px;
+}
+
+@media (max-width: 768px) {
+    #about p {
+        text-align: justify;
+        font-size: 15px;
+    }
+}
+
+#about h1 {
+    text-align: left;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#skills h1 {
+    text-align: left;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.link {
+    color: blue;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.link:hover {
+    color: red;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+hr {
+    size: 20px;
+}
+
+.tooltip {
+    position: absolute;
+    visibility: hidden;
+    background-color: #3b3026;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #ffeac2;
+    text-align: center;
+    opacity: 0;
+    transition: 0.3s ease;
+    transform: translateY(10px);
+    max-width: 500px;
+}
+
+.tooltip-h1 {
+    font-size: 30px;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 30px;
+}
+
+.hoverable:hover .tooltip {
+    visibility: visible;
+    transition: 0.3s ease;
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+#about a {
+    text-decoration: none;
+}
+
+#skill-div {
+    display: flex;
+}
+
+.progress {
+    height: 25px;
+    width: 500px;
+    background-color: #857a69;
+    border-radius: 100px;
+}
+
+.bar {
+    height: 25px;
+    width: 500px;
+    background-color: #3b3026;
+    border-radius: 100px;
+}
+
+#skills p {
+    font-size: 30px;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
