@@ -23,6 +23,13 @@
     --syntax-blue: #8caaee
 } /* All colors defined here */
 
+@font-face { /* JetBrains Supremacy */
+    font-family: 'JetBrainsMono Nerd Font';
+    src: url('fonts/JetBrainsMonoNerdFont-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0; /* The body imposes some amount of margin by default, so we reset it to 0 */
     font-family: JetBrainsMono Nerd Font; /* My favorite font, and now yours too, without questions */
