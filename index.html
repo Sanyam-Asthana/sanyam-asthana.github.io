@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                <div id="text">
+                <div id="text" contenteditable="true" spellcheck="false">
                     <h1><span class="dim">#</span><span class="green">Welcome to my page!</span></h1>
 
                     <div class="content-box">
@@ -59,7 +59,21 @@
 
                         <p>Recently I have been interested in <span class="bold-md">low-level systems programming</span>, whether it be making kernel userlands, programming languages, or full-blown virtual machines themselves.
 
-                        <p>I have a peculiar interest in learning about programming languages, both popular and obscure, with my go-to languages being Java, C, Python and Go.
+                        <p>I have a peculiar interest in learning about programming languages, both popular and obscure, with my go-to languages being <span class="bold-md">Java, C, Python and Go</span>.
+                    </div>
+                </div>
+
+                <div id="terminal">
+                    <div id="terminal-tab-bar">
+                        <div class="terminal-tab">
+                            SACode - bash
+                        </div>
+                    </div>
+                    <div id="terminal-content" contenteditable="true" spellcheck="false">
+                        <span class="green">Press 'J' to toggle terminal</span><br>
+                        <span class="red">WARNING! You are in Read-Only mode. Any changes made to the files will not be saved!</span><br><br>
+                        <span class="blue">bash$ </span>
+                        <span class="cursor">|</span>
                     </div>
                 </div>
             </div>
@@ -87,5 +101,7 @@
                 </div>
             </div>
         </footer>
+
+        <script src="scripts.js"></script>
     </body>
 </html>
