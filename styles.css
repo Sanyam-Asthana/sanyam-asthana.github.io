@@ -104,7 +104,7 @@ a {
     border-right: 1px solid var(--primary-border);
 }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   #sidebar {
       display: none; /* Hide the sidebar when the screen is narrow */
       width: 0%; /* Without this, the sidebar hides, but leaves empty white space, so we just squash it down to 0 width */
@@ -116,7 +116,7 @@ a {
     background-color: var(--content-bg-color);
 }
 
-@media screen and (min-width: 480px) and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   #content {
       width: 100%; /* Take up the full width of the screen when the sidebar is hidden */
   }
@@ -195,12 +195,19 @@ a {
 }
 
 #text {
-    margin: 25px;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 18px;
 }
 
 .dim {
     color: var(--dim-text);
     margin-right: 15px;
+}
+
+.dim-inline {
+    color: var(--dim-text);
 }
 
 #footer-div {
@@ -265,4 +272,33 @@ a {
 .content-box {
     border: 2px solid var(--syntax-blue);
     padding: 10px;
+}
+
+.bold {
+    font-weight: bold;
+    display: inline;
+}
+
+#text h1 {
+    margin: 0px;
+    margin-bottom: 25px;
+    line-height: 1;
+}
+
+#text h2 {
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    line-height: 1;
+}
+
+.bold-md {
+    font-weight: bold;
+}
+
+.bold-md::before,
+.bold-md::after {
+    content: "**";
+    color: var(--dim-text);
+    font-weight: normal; /* This part injects the '**' into the HTML, which avoids the sheer unreadbility otherwise */
 }
