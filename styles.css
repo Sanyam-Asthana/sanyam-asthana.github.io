@@ -25,14 +25,14 @@
 
 @font-face { /* JetBrains Supremacy */
     font-family: 'JetBrainsMono Nerd Font';
-    src: url('fonts/JetBrainsMonoNerdFont-Regular.ttf') format('truetype');
+    src: url('JetBrainsMonoNerdFont-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
     margin: 0; /* The body imposes some amount of margin by default, so we reset it to 0 */
-    font-family: JetBrainsMono Nerd Font; /* My favorite font, and now yours too, without questions */
+    font-family: 'JetBrainsMono Nerd Font'; /* My favorite font, and now yours too, without questions */
     color: var(--primary-text);
     height: 100vh; /* The body extends all the way down so the sidebar and main content fill all the page */
     display: flex; /* So we can tell main-content to take all the space */
@@ -323,6 +323,12 @@ a {
     height: 275px;
 }
 
+@media screen and (max-width: 768px) {
+    #terminal {
+        display: none;
+    }
+}
+
 #terminal-tab-bar {
     background-color: var(--header-bg-color);
     border-top: 1px solid var(--primary-border);
@@ -334,6 +340,7 @@ a {
 #terminal-content {
     background-color: var(--content-bg-color);
     padding: 10px;
+    outline: none;
 }
 
 .terminal-tab {
@@ -347,7 +354,7 @@ a {
 
 /* These few classes exist to support the toggleable functionality */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .full-width {
