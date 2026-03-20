@@ -1,149 +1,268 @@
+:root {
+    --header-bg-color: rgb(36, 38, 51);
+    --footer-bg-color: rgb(36, 38, 51);
+    --sidebar-bg-color: rgb(42, 44, 59);
+    --primary-text: rgb(200, 208, 242);
+    --red-circle: rgb(236, 103, 101);
+    --yellow-circle: rgb(241, 189, 68);
+    --green-circle: rgb(18, 219, 119);
+    --primary-border: rgb(68, 69, 87);
+    --file-focus-color: rgb(49, 52, 69);
+    --sidebar-hover-bg: rgb(60, 63, 80);
+    --content-bg-color: rgb(49, 52, 69);
+    --html-icon-color: rgb(213, 92, 38);
+    --alert-bg-color: rgb(55, 53, 53);
+    --alert-text-color: rgb(224, 201, 151);
+    --file-tab-deselected: rgb(30, 32, 42);
+    --dim-text: rgb(100, 108, 142);
+    --md-icon-color: rgb(94, 163, 239);
+    --accent-color: rgb(169, 141, 198);
+    --vim-normal-bg: rgb(237, 214, 208);
+    --syntax-green: #a6d189;
+    --syntax-red: #e78284;
+    --syntax-blue: #8caaee
+} /* All colors defined here */
+
 body {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: #ffeac2;
-    color: #3b3026;
-    font-family: monospace;
+    margin: 0; /* The body imposes some amount of margin by default, so we reset it to 0 */
+    font-family: JetBrainsMono Nerd Font; /* My favorite font, and now yours too, without questions */
+    color: var(--primary-text);
+    min-height: 100vh; /* The body extends all the way down so the sidebar and main content fill all the page */
+    display: flex; /* So we can tell main-content to take all the space */
+    flex-direction: column; /* Vertical stacking */
 }
 
-#titletext {
-    text-align: left;
-    font-size: 50px;
+a {
+    color: var(--primary-text);
+    text-decoration: underline; /* To hide the default underline of links */
 }
 
-#contents {
-    justify-content: left;
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.btn-click {
-    padding-left: 10px;
-    padding-right: 10px;
+#header-div {
+    display: flex; /* To stack items horizontally */
+    justify-content: space-between; /* To keep both children divs as apart form each other as possible */
+    align-items: center; /* To vertically center the items */
     padding-top: 5px;
     padding-bottom: 5px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #3b3026;
-    background-color: #00000000;
-    font-size: 20px;
-    font-family: monospace;
-    margin-right: 20px;
-    transition: 0.3s;
-}
-
-.btn-click:hover {
-    background-color: #3b3026;
-    color: #ffeac2;
-    transition: 0.3s;
-    transform: scale(1.2);
-    border-radius: 100px;
-}
-
-#about {
-    margin-bottom: 100px;
-}
-
-#about p {
-    text-align: left;
-    font-size: 25px;
-}
-
-@media (max-width: 768px) {
-    #about p {
-        text-align: justify;
-        font-size: 15px;
-    }
-}
-
-#about h1 {
-    text-align: left;
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-#skills h1 {
-    text-align: left;
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.link {
-    color: blue;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.link:hover {
-    color: red;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-hr {
-    size: 20px;
-}
-
-.tooltip {
-    position: absolute;
-    visibility: hidden;
-    background-color: #3b3026;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    color: #ffeac2;
-    text-align: center;
-    opacity: 0;
-    transition: 0.3s ease;
-    transform: translateY(10px);
-    max-width: 500px;
+    background-color: var(--header-bg-color);
+    border-bottom: 1px solid var(--primary-border);
 }
 
-.tooltip-h1 {
-    font-size: 30px;
-    text-align: center;
-    text-decoration: underline;
-    margin-bottom: 30px;
+#header-left {
+    display: flex; /* To stack children items horizontally */
+    align-items: center; /* To vertically center the items */
+    gap: 2px; /* Gap between children items */
 }
 
-.hoverable:hover .tooltip {
-    visibility: visible;
-    transition: 0.3s ease;
-    transform: translateY(0px);
-    opacity: 1;
+#header-right {
+    display: flex; /* To stack children items horizontally */
+    align-items: center; /* To vertically center the items */
+    gap: 2px; /* Gap between children items */
 }
 
-#about a {
+#header-left h1 {
+    font-weight: normal; /* Makes the headings not bold */
+    margin: 0px; /* Headings have default margins for some reason */
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 1; /* To reduce the vertical space around the heading */
+}
+
+.red-circle {
+    width: 12px;
+    height: 12px;
+    background-color: var(--red-circle);
+    border-radius: 100px; /* Makes it a circle for that MacOS vibe */
+    margin-right: 5px;
+}
+
+.yellow-circle {
+    width: 12px;
+    height: 12px;
+    background-color: var(--yellow-circle);
+    border-radius: 100px; /* Makes it a circle for that MacOS vibe */
+    margin-right: 5px;
+}
+
+.green-circle {
+    width: 12px;
+    height: 12px;
+    background-color: var(--green-circle);
+    border-radius: 100px; /* Makes it a circle for that MacOS vibe */
+    margin-right: 5px;
+}
+
+#main-content {
+    display: flex; /* To stack sidebar and content horizontally */
+    flex: 1; /* To extend the main content all the way downward */
+}
+
+#sidebar {
+    width: 16.5%;
+    background-color: var(--sidebar-bg-color);
+    border-right: 1px solid var(--primary-border);
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  #sidebar {
+      display: none; /* Hide the sidebar when the screen is narrow */
+      width: 0%; /* Without this, the sidebar hides, but leaves empty white space, so we just squash it down to 0 width */
+  }
+}
+
+#content {
+    width: 83.5%;
+    background-color: var(--content-bg-color);
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  #content {
+      width: 100%; /* Take up the full width of the screen when the sidebar is hidden */
+  }
+}
+
+#sidebar ul {
+    list-style: none; /* To hide the bullet points */
+    padding: 0px;
+    margin: 0px;
+}
+
+#sidebar p {
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+}
+
+#sidebar li {
+    padding: 2px 20px;
+    text-decoration: none;
+    margin: 4px 0px; /* For that indentation effect in the folder structure */
+    font-size: 16px;
+}
+
+#sidebar li:hover {
+    background-color: var(--sidebar-hover-bg);
+}
+
+#sidebar a {
     text-decoration: none;
 }
 
-#skill-div {
-    display: flex;
+.nerd-icon {
+    padding: 0px 5px;
 }
 
-.progress {
-    height: 25px;
-    width: 500px;
-    background-color: #857a69;
-    border-radius: 100px;
+.md-icon {
+    color: var(--md-icon-color);
 }
 
-.bar {
-    height: 25px;
-    width: 500px;
-    background-color: #3b3026;
-    border-radius: 100px;
+.focused {
+    background-color: var(--file-focus-color);
 }
 
-#skills p {
-    font-size: 30px;
+.alert {
+    color: var(--alert-text-color);
+    background-color: var(--alert-bg-color);
+    border-radius: 5px;
+    padding: 5px;
 }
 
-.skill {
+#file-tab-bar {
+    background-color: var(--header-bg-color);
+    color: var(--primary-text);
     display: flex;
     align-items: center;
-    gap: 20px;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+#navigation-arrows {
+    border-right: 1px solid var(--primary-border);
+    padding: 8px 8px;
+}
+
+.file-tab {
+    background-color: var(--file-tab-deselected);
+    align-self: stretch; /* This stretches the file tab to fill the vertical space of the file tab bar completely */
+    display: flex; /* Needed for align-self: stretch */
+    align-items: center; /* Vertically centers the file tab content */
+    padding: 8px 14px;
+    border-right: 1px solid var(--primary-border);
+}
+
+.file-tab-focused {
+    background-color: var(--content-bg-color);
+}
+
+#text {
+    margin: 25px;
+}
+
+.dim {
+    color: var(--dim-text);
+    margin-right: 15px;
+}
+
+#footer-div {
+    display: flex; /* To stack items horizontally */
+    justify-content: space-between; /* To keep both children divs as apart form each other as possible */
+    align-items: center; /* To vertically center the items */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--header-bg-color);
+    border-top: 1px solid var(--primary-border);
+}
+
+#footer-left {
+    display: flex; /* To stack children items horizontally */
+    align-items: center; /* To vertically center the items */
+    gap: 2px; /* Gap between children items */
+}
+
+#footer-right {
+    display: flex; /* To stack children items horizontally */
+    align-items: center; /* To vertically center the items */
+    gap: 10px; /* Gap between children items */
+}
+
+#footer-left h1 {
+    font-weight: normal; /* Makes the headings not bold */
+    margin: 0px; /* Headings have default margins for some reason */
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 1; /* To reduce the vertical space around the heading */
+}
+
+#vim-normal {
+    background-color: var(--vim-normal-bg);
+    color: var(--footer-bg-color);
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+#markdown-text {
+    border-right: 1px solid var(--primary-border);
+    padding-right: 10px;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+}
+
+.green {
+    color: var(--syntax-green);
+}
+
+.blue {
+    color: var(--syntax-blue);
+}
+
+.red {
+    color: var(--syntax-red);
+}
+
+.content-box {
+    border: 2px solid var(--syntax-blue);
+    padding: 10px;
 }
