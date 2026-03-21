@@ -286,7 +286,7 @@ a {
 }
 
 .content-box {
-    border: 2px solid var(--syntax-blue);
+    border: 1.75px solid var(--syntax-blue);
     padding: 10px;
 }
 
@@ -297,6 +297,7 @@ a {
 
 #text h1 {
     margin: 0px;
+    margin-top: 10px;
     margin-bottom: 25px;
     line-height: 1;
 }
@@ -321,6 +322,8 @@ a {
 
 #terminal {
     height: 275px;
+    overflow: auto;
+    resize: vertical;
 }
 
 @media screen and (max-width: 768px) {
@@ -341,6 +344,8 @@ a {
     background-color: var(--content-bg-color);
     padding: 10px;
     outline: none;
+    overflow-y: auto;
+    height: calc(100% - 60px); /* Fixing the height so the terminal doesn't grow in size */
 }
 
 .terminal-tab {
@@ -357,6 +362,10 @@ a {
     display: none !important;
 }
 
+.forceshow {
+    display: inline !important;
+}
+
 .full-width {
     width: 100% !important; /* Override any existing width */
 }
@@ -369,4 +378,34 @@ a {
 
 .cursor {
     animation: cursor-blink 1s infinite;
+}
+
+#terminal-input {
+    background-color: var(--content-bg-color);
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 16px;
+}
+
+.old-input {
+    background-color: var(--content-bg-color);
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 16px;
+}
+
+.prompt {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.fullscreen {
+    height: 100vh !important;
 }

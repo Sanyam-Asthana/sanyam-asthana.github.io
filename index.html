@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+
         <header>
             <div id="header-div">
                 <div id="header-left">
@@ -66,14 +68,17 @@
                 <div id="terminal">
                     <div id="terminal-tab-bar">
                         <div class="terminal-tab">
-                            SACode - bash
+                            SACode - shell
                         </div>
                     </div>
-                    <div id="terminal-content" contenteditable="true" spellcheck="false">
+                    <div id="terminal-content">
                         <span class="green">Press 'J' to toggle terminal</span><br>
                         <span class="red">WARNING! You are in Read-Only mode. Any changes made to the files will not be saved!</span><br><br>
-                        <span class="blue">bash$ </span>
-                        <span class="cursor">|</span>
+
+                        <div class="prompt">
+                            <span class="blue">shell$ </span>
+                            <input type="text" id="terminal-input" spellcheck="false">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,7 +100,7 @@
                     </div>
 
                     <div id="footer-icons">
-                        <span class="nerd-icon"></span>
+                        <span class="nerd-icon" onclick="toggleTerminal()"></span>
                         <span class="nerd-icon"></span>
                     </div>
                 </div>
