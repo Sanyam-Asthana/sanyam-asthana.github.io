@@ -1,5 +1,5 @@
 term_object = document.getElementById('terminal'); // Getting the terminal object
-side_bar_object = document.getElementById('sidebar'); // Basically getting all the required elements in the next few lines
+side_bar_object = document.getElementById('sidebar'); // Getting all the required elements in the next few lines
 content_object = document.getElementById('content');
 
 term_input = document.getElementById('terminal-input');
