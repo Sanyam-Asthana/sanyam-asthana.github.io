@@ -50,7 +50,7 @@ function fetchNewPrompt() { // Function to fetch the newest terminal input div e
 
       const prompt_div = document.createElement('div') // Creating a div for the new terminal input div
       prompt_div.innerHTML = `<div class="prompt">
-          <span class="blue">shell$ </span>
+          <label for="terminal-input" class="blue">shell$</label>
           <input type="text" id="terminal-input" spellcheck="false" autofocus>
       </div>`
 
