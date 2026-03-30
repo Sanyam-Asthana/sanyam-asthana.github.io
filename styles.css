@@ -461,6 +461,14 @@ h3 {
     padding: 20px;
     border: 1.75px solid var(--syntax-blue);
     width: 12.5rem;
+    box-shadow: 5px 5px 0px 0px var(--syntax-blue);
+    transition: 0.3s ease;
+}
+
+.timeline-card:hover {
+    box-shadow: 0px 0px 0px 0px;
+    transform: translateX(5px) translateY(5px);
+    transition: 0.3s ease;
 }
 
 .timeline-card h4 {
