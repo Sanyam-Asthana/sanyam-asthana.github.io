@@ -1,0 +1,146 @@
+From d6e8cad97e4a86480444080d2d732e464d5d6756 Mon Sep 17 00:00:00 2001
+From: Sanyam Asthana <sanyam.asthana@gmail.com>
+Date: Fri, 20 Mar 2026 16:24:29 +0530
+Subject: [PATCH 01/10] add introduction
+
+---
+ index.html | 16 +++++++++++-----
+ styles.css | 42 +++++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 50 insertions(+), 8 deletions(-)
+
+diff --git a/index.html b/index.html
+index 5b084a1..d467500 100644
+--- a/index.html
++++ b/index.html
+@@ -3,6 +3,7 @@
+     <head>
+         <title>SACode</title>
+         <link rel="stylesheet" href="styles.css" />
++        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     </head>
+     <body>
+         <header>
+@@ -25,7 +26,7 @@
+                     <p><span class="nerd-icon"> </span>SACode</p>
+                     <ul>
+                         <li class="focused"><a href="#"><span class="nerd-icon md-icon"> </span>home.md</a></li>
+-                        <li><a href="#"><span class="nerd-icon md-icon"> </span>about.md</a></li>
++                        <li><a href="#"><span class="nerd-icon md-icon"> </span>projects.md</a></li>
+                         <li><a href="#"><span class="nerd-icon md-icon"> </span>contact.md</a></li>
+                     </ul>
+                 </nav>
+@@ -40,7 +41,7 @@
+                         home.md
+                     </div>
+                     <div class="file-tab">
+-                        about.md
++                        projects.md
+                     </div>
+                     <div class="file-tab">
+                         contact.md
+@@ -51,8 +52,14 @@
+                     <h1><span class="dim">#</span><span class="green">Welcome to my page!</span></h1>
+ 
+                     <div class="content-box">
+-                        <h3><span class="dim">#</span><span class="red">About</span></h3>
+-                        My name is Sanyam Asthana, and I am a dual-degree student of Computational Linguistics at IIIT Hyderabad.
++                        <h2><span class="dim">#</span><span class="red">Introduction</span></h2>
++                        <p>My name is <span class="bold"><span class="dim-inline">**</span>Sanyam Asthana<span class="dim-inline">**</span></span>, and I am a dual-degree student of <span class="bold"><span class="dim-inline">**</span>Computational Linguistics<span class="dim-inline">**</span></span> at <span class="bold"><span class="dim-inline">**</span>IIIT Hyderabad<span class="dim-inline">**</span></span>.
++
++                        <p>I have a keen interest in <span class="bold-md">machine learning and natural language processing</span>, along with the underlying architecture which powers it. I also like to take part in <span class="bold-md">CTF (Capture The Flag) competitions</span> and am consequently interested in cybersecurity and related tooling.
++
++                        <p>Recently I have been interested in <span class="bold-md">low-level systems programming</span>, whether it be making kernel userlands, programming languages, or full-blown virtual machines themselves.
++
++                        <p>I have a peculiar interest in learning about programming languages, both popular and obscure, with my go-to languages being Java, C, Python and Go.
+                     </div>
+                 </div>
+             </div>
+@@ -69,7 +76,6 @@
+                     <div id="vim-normal">
+                         NORMAL
+                     </div>
+-
+                     <div id="markdown-text">
+                         Markdown
+                     </div>
+diff --git a/styles.css b/styles.css
+index 9bc3832..82369df 100644
+--- a/styles.css
++++ b/styles.css
+@@ -104,7 +104,7 @@ a {
+     border-right: 1px solid var(--primary-border);
+ }
+ 
+-@media screen and (min-width: 480px) and (max-width: 768px) {
++@media screen and (max-width: 768px) {
+   #sidebar {
+       display: none; /* Hide the sidebar when the screen is narrow */
+       width: 0%; /* Without this, the sidebar hides, but leaves empty white space, so we just squash it down to 0 width */
+@@ -116,7 +116,7 @@ a {
+     background-color: var(--content-bg-color);
+ }
+ 
+-@media screen and (min-width: 480px) and (max-width: 768px) {
++@media screen and (max-width: 768px) {
+   #content {
+       width: 100%; /* Take up the full width of the screen when the sidebar is hidden */
+   }
+@@ -195,7 +195,10 @@ a {
+ }
+ 
+ #text {
+-    margin: 25px;
++    margin-top: 25px;
++    margin-left: 25px;
++    margin-right: 25px;
++    font-size: 18px;
+ }
+ 
+ .dim {
+@@ -203,6 +206,10 @@ a {
+     margin-right: 15px;
+ }
+ 
++.dim-inline {
++    color: var(--dim-text);
++}
++
+ #footer-div {
+     display: flex; /* To stack items horizontally */
+     justify-content: space-between; /* To keep both children divs as apart form each other as possible */
+@@ -266,3 +273,32 @@ a {
+     border: 2px solid var(--syntax-blue);
+     padding: 10px;
+ }
++
++.bold {
++    font-weight: bold;
++    display: inline;
++}
++
++#text h1 {
++    margin: 0px;
++    margin-bottom: 25px;
++    line-height: 1;
++}
++
++#text h2 {
++    margin: 0px;
++    margin-top: 10px;
++    margin-bottom: 25px;
++    line-height: 1;
++}
++
++.bold-md {
++    font-weight: bold;
++}
++
++.bold-md::before,
++.bold-md::after {
++    content: "**";
++    color: var(--dim-text);
++    font-weight: normal; /* This part injects the '**' into the HTML, which avoids the sheer unreadbility otherwise */
++}
+-- 
+2.50.1 (Apple Git-155)
+

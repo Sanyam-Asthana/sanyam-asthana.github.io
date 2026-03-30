@@ -68,8 +68,39 @@ function fetchNewPrompt() { // Function to fetch the newest terminal input div e
           term_content.appendChild(newPrompt(s))
         }
 
-        if(tokens[0] == "help") {
-          term_content.appendChild(newPrompt("shell: echo, help"))
+        else if(tokens[0] == "ls") {
+          term_content.appendChild(newPrompt("home.md"))
+          term_content.appendChild(newPrompt("projects.md"))
+          term_content.appendChild(newPrompt("contact.md"))
+        }
+
+        else if(tokens[0] == "cd") {
+          term_content.appendChild(newPrompt("cd: Operation not permitted"))
+        }
+
+        else if(tokens[0] == "help") {
+          term_content.appendChild(newPrompt("shell: echo, help, ls, cd, clear, smolfetch"))
+        }
+
+        else if(tokens[0] == "clear") {
+          term_content.replaceChildren();
+        }
+
+        else if(tokens[0] == "smolfetch") {
+        let output = `        /\\          guest@${navigator.product}
+       /  \\         --------------------------
+      /    \\        Agent: ${navigator.userAgent}
+     /      \\       CPU Threads: ${navigator.hardwareConcurrency}
+    /   ,,   \\      RAM: ${navigator.deviceMemory || 'N/A'}
+   /   |  |   \\     Platform: ${navigator.platform}
+  /_-''    ''-_\\    Battery: ${navigator.getBattery || 'N/A'}
+                    Resolution: ${screen.width}x${screen.height}`
+
+        term_content.appendChild(newPrompt(output))
+        }
+
+        else {
+          term_content.appendChild(newPrompt(tokens[0] + ": Unrecognized command! Use 'help' for a list of commands!"))
         }
       }
 

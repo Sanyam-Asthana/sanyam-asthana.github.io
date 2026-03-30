@@ -3,6 +3,7 @@
     <head>
         <title>Sanyam Asthana</title>
         <link rel="stylesheet" href="styles.css" />
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Sanyam Asthana's Portfolio">
         <meta name="author" content="Sanyam Asthana">
@@ -12,7 +13,6 @@
     <body>
 
         <header>
-            <div id="header-div">
                 <div id="header-left">
                     <div class="red-circle"></div>
                     <div class="yellow-circle"></div>
@@ -23,20 +23,17 @@
                 <div id="header-right">
                     <a href="#">GitHub</a>
                 </div>
-            </div>
         </header>
         <main id="main-content">
-            <div id="sidebar">
-                <nav>
-                    <p><span class="nerd-icon"> </span>SACode</p>
-                    <ul>
-                        <li class="focused"><a href="#"><span class="nerd-icon md-icon"> </span>home.md</a></li>
-                        <li><a href="#"><span class="nerd-icon md-icon"> </span>projects.md</a></li>
-                        <li><a href="#"><span class="nerd-icon md-icon"> </span>contact.md</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div id="content">
+            <nav id="sidebar">
+                <p><span class="nerd-icon"> </span>SACode</p>
+                <ul>
+                    <li class="focused"><a href="#"><span class="nerd-icon md-icon"> </span>home.md</a></li>
+                    <li><a href="#"><span class="nerd-icon md-icon"> </span>projects.md</a></li>
+                    <li><a href="#"><span class="nerd-icon md-icon"> </span>contact.md</a></li>
+                </ul>
+            </nav>
+            <section id="content">
                 <div id="file-tab-bar">
                     <div id="navigation-arrows">
                         <span class="nerd-icon"></span>
@@ -53,22 +50,53 @@
                     </div>
                 </div>
 
-                <div id="text" contenteditable="true" spellcheck="false">
-                    <h1><span class="dim">#</span><span class="green">Welcome to my page!</span></h1>
+                <article id="text" contenteditable="true" spellcheck="false">
+                    <h2><span class="dim">#</span><span class="green">Welcome to my page!</span></h2>
 
-                    <div class="content-box">
-                        <h2><span class="dim">#</span><span class="red">Introduction</span></h2>
-                        <p>My name is <span class="bold"><span class="dim-inline">**</span>Sanyam Asthana<span class="dim-inline">**</span></span>, and I am a dual-degree student of <span class="bold"><span class="dim-inline">**</span>Computational Linguistics<span class="dim-inline">**</span></span> at <span class="bold"><span class="dim-inline">**</span>IIIT Hyderabad<span class="dim-inline">**</span></span>.
+                    <section>
+                        <h3><span class="dim">#</span><span class="red">Introduction</span></h3>
+                        <p>My name is <span class="bold-md">Sanyam Asthana</span>, and I am a dual-degree student of <span class="bold-md">Computational Linguistics</span> at <span class="bold-md">IIIT Hyderabad</span>.
 
                         <p>I have a keen interest in <span class="bold-md">machine learning and natural language processing</span>, along with the underlying architecture which powers it. I also like to take part in <span class="bold-md">CTF (Capture The Flag) competitions</span> and am consequently interested in cybersecurity and related tooling.
 
                         <p>Recently I have been interested in <span class="bold-md">low-level systems programming</span>, whether it be making kernel userlands, programming languages, or full-blown virtual machines themselves.
 
                         <p>I have a peculiar interest in learning about programming languages, both popular and obscure, with my go-to languages being <span class="bold-md">Java, C, Python and Go</span>.
-                    </div>
-                </div>
+                    </section>
 
-                <div id="terminal">
+                    <section id="timeline">
+                        <h3 class="red"><span class="dim">#</span>Timeline</h3>
+                        <section id="timeline-content">
+                            <div class="timeline-card">
+                                <h4>2023</h4>
+                                <h5>Frank Anthony Public School, New Delhi</h5>
+                                <p>Passed grade 10, having taken part in various intra-school activites</p>
+                            </div>
+                            <div class="timeline-card">
+                                <h4>2023</h4>
+                                <h5>DPS RK Puram</h5>
+                                <p>Joined DPS RK Puram and the technology club, Exun Clan</p>
+                            </div>
+                            <div class="timeline-card">
+                                <h4>2025</h4>
+                                <h5>DPS RK Puram</h5>
+                                <p>Graduated from the school with a gold medal of academic excellence</p>
+                            </div>
+                            <div class="timeline-card">
+                                <h4>2025</h4>
+                                <h5>IIIT Hyderabad</h5>
+                                <p>Joined the CLD program at IIIT Hyderabad</p>
+                            </div>
+                            <div class="timeline-card">
+                                <h4>2025</h4>
+                                <h5>IIIT Hyderabad</h5>
+                                <p>Got first Research Assistant position</p>
+                            </div>
+                        </section>
+                    </section>
+                </article>
+
+                <section id="terminal">
                     <div id="terminal-tab-bar">
                         <div class="terminal-tab">
                             SACode - shell
@@ -83,8 +111,8 @@
                             <input type="text" id="terminal-input" spellcheck="false">
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
+            </section>
         </main>
 
         <footer>

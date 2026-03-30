@@ -1,0 +1,177 @@
+From 8d45e9ecb20902b8087e3c1331b126e293768004 Mon Sep 17 00:00:00 2001
+From: Sanyam Asthana <sanyam.asthana@gmail.com>
+Date: Sat, 21 Mar 2026 02:22:21 +0530
+Subject: [PATCH 02/10] add terminal, make text editable
+
+---
+ index.html | 20 +++++++++++++++++--
+ scripts.js | 13 ++++++++++++
+ styles.css | 58 ++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 3 files changed, 87 insertions(+), 4 deletions(-)
+ create mode 100644 scripts.js
+
+diff --git a/index.html b/index.html
+index d467500..0b0ea08 100644
+--- a/index.html
++++ b/index.html
+@@ -48,7 +48,7 @@
+                     </div>
+                 </div>
+ 
+-                <div id="text">
++                <div id="text" contenteditable="true" spellcheck="false">
+                     <h1><span class="dim">#</span><span class="green">Welcome to my page!</span></h1>
+ 
+                     <div class="content-box">
+@@ -59,7 +59,21 @@
+ 
+                         <p>Recently I have been interested in <span class="bold-md">low-level systems programming</span>, whether it be making kernel userlands, programming languages, or full-blown virtual machines themselves.
+ 
+-                        <p>I have a peculiar interest in learning about programming languages, both popular and obscure, with my go-to languages being Java, C, Python and Go.
++                        <p>I have a peculiar interest in learning about programming languages, both popular and obscure, with my go-to languages being <span class="bold-md">Java, C, Python and Go</span>.
++                    </div>
++                </div>
++
++                <div id="terminal">
++                    <div id="terminal-tab-bar">
++                        <div class="terminal-tab">
++                            SACode - bash
++                        </div>
++                    </div>
++                    <div id="terminal-content" contenteditable="true" spellcheck="false">
++                        <span class="green">Press 'J' to toggle terminal</span><br>
++                        <span class="red">WARNING! You are in Read-Only mode. Any changes made to the files will not be saved!</span><br><br>
++                        <span class="blue">bash$ </span>
++                        <span class="cursor">|</span>
+                     </div>
+                 </div>
+             </div>
+@@ -87,5 +101,7 @@
+                 </div>
+             </div>
+         </footer>
++
++        <script src="scripts.js"></script>
+     </body>
+ </html>
+diff --git a/scripts.js b/scripts.js
+new file mode 100644
+index 0000000..bd4ec25
+--- /dev/null
++++ b/scripts.js
+@@ -0,0 +1,13 @@
++term_object = document.getElementById('terminal'); // Getting the terminal object
++side_bar_object = document.getElementById('sidebar');
++content_object = document.getElementById('content');
++
++document.addEventListener('keydown', (e) => { // Adding a keydown listener
++    if (e.key === 'j') {
++      term_object.classList.toggle('hidden'); // Toggle the hidden class
++    }
++    if (e.key === 'b') {
++      side_bar_object.classList.toggle('hidden'); // Toggle the hidden class
++      content_object.classList.toggle('full-width'); // Toggle full width
++    }
++});
+diff --git a/styles.css b/styles.css
+index 82369df..133cf38 100644
+--- a/styles.css
++++ b/styles.css
+@@ -27,9 +27,10 @@ body {
+     margin: 0; /* The body imposes some amount of margin by default, so we reset it to 0 */
+     font-family: JetBrainsMono Nerd Font; /* My favorite font, and now yours too, without questions */
+     color: var(--primary-text);
+-    min-height: 100vh; /* The body extends all the way down so the sidebar and main content fill all the page */
++    height: 100vh; /* The body extends all the way down so the sidebar and main content fill all the page */
+     display: flex; /* So we can tell main-content to take all the space */
+     flex-direction: column; /* Vertical stacking */
++    overflow: hidden; /* Makes so the body itself does not scroll when there's an overflow */
+ }
+ 
+ a {
+@@ -96,6 +97,8 @@ a {
+ #main-content {
+     display: flex; /* To stack sidebar and content horizontally */
+     flex: 1; /* To extend the main content all the way downward */
++    overflow: hidden; /* Makes so the content does not scroll when there's an overflow */
++    min-height: 0px; /* The children will overflow without this */
+ }
+ 
+ #sidebar {
+@@ -114,6 +117,9 @@ a {
+ #content {
+     width: 83.5%;
+     background-color: var(--content-bg-color);
++    display: flex;
++    flex-direction: column; /* Stack file tab bar and text area vertically */
++    overflow: hidden;
+ }
+ 
+ @media screen and (max-width: 768px) {
+@@ -195,10 +201,13 @@ a {
+ }
+ 
+ #text {
+-    margin-top: 25px;
++    padding-top: 25px;
+     margin-left: 25px;
+     margin-right: 25px;
+     font-size: 18px;
++    overflow-y: auto; /* So only this text area scrolls */
++    flex: 1; /* Takes up all available vertical space */
++    outline: none;
+ }
+ 
+ .dim {
+@@ -302,3 +311,48 @@ a {
+     color: var(--dim-text);
+     font-weight: normal; /* This part injects the '**' into the HTML, which avoids the sheer unreadbility otherwise */
+ }
++
++#terminal {
++    height: 275px;
++}
++
++#terminal-tab-bar {
++    background-color: var(--header-bg-color);
++    border-top: 1px solid var(--primary-border);
++    border-bottom: 1px solid var(--primary-border);
++    display: flex;
++    align-items: center;
++}
++
++#terminal-content {
++    background-color: var(--content-bg-color);
++    padding: 10px;
++}
++
++.terminal-tab {
++    background-color: var(--content-bg-color);
++    align-self: stretch; /* This stretches the file tab to fill the vertical space of the file tab bar completely */
++    display: flex; /* Needed for align-self: stretch */
++    align-items: center; /* Vertically centers the file tab content */
++    padding: 8px 14px;
++    border-right: 1px solid var(--primary-border);
++}
++
++/* These few classes exist to support the toggleable functionality */
++.hidden {
++    display: none;
++}
++
++.full-width {
++    width: 100% !important; /* Override any existing width */
++}
++
++@keyframes cursor-blink {
++    0% { opacity: 1; }
++    50% { opacity: 0; }
++    100% { opacity: 1; }
++}
++
++.cursor {
++    animation: cursor-blink 1s infinite;
++}
+-- 
+2.50.1 (Apple Git-155)
+

@@ -1,0 +1,23 @@
+From 2a5cca8da2f6b2ffc928adb7833a5077d457bfdd Mon Sep 17 00:00:00 2001
+From: Sanyam Asthana <sanyam.asthana@gmail.com>
+Date: Sat, 21 Mar 2026 14:11:55 +0530
+Subject: [PATCH 06/10] retry deployment
+
+---
+ scripts.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts.js b/scripts.js
+index 6d53c00..73701fb 100644
+--- a/scripts.js
++++ b/scripts.js
+@@ -1,5 +1,5 @@
+ term_object = document.getElementById('terminal'); // Getting the terminal object
+-side_bar_object = document.getElementById('sidebar'); // Basically getting all the required elements in the next few lines
++side_bar_object = document.getElementById('sidebar'); // Getting all the required elements in the next few lines
+ content_object = document.getElementById('content');
+ 
+ term_input = document.getElementById('terminal-input');
+-- 
+2.50.1 (Apple Git-155)
+

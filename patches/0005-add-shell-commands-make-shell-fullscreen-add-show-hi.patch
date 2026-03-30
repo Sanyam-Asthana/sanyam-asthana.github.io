@@ -1,0 +1,244 @@
+From 93b6bb3b9c267f6098386294d8dab195d6b85dea Mon Sep 17 00:00:00 2001
+From: Sanyam Asthana <sanyam.asthana@gmail.com>
+Date: Sat, 21 Mar 2026 14:09:09 +0530
+Subject: [PATCH 05/10] add shell commands, make shell fullscreen, add
+ show/hide terminal button
+
+---
+ index.html | 15 ++++++----
+ scripts.js | 84 +++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ styles.css | 41 +++++++++++++++++++++++++-
+ 3 files changed, 133 insertions(+), 7 deletions(-)
+
+diff --git a/index.html b/index.html
+index 0b0ea08..17cb4af 100644
+--- a/index.html
++++ b/index.html
+@@ -6,6 +6,8 @@
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     </head>
+     <body>
++        <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
++
+         <header>
+             <div id="header-div">
+                 <div id="header-left">
+@@ -66,14 +68,17 @@
+                 <div id="terminal">
+                     <div id="terminal-tab-bar">
+                         <div class="terminal-tab">
+-                            SACode - bash
++                            SACode - shell
+                         </div>
+                     </div>
+-                    <div id="terminal-content" contenteditable="true" spellcheck="false">
++                    <div id="terminal-content">
+                         <span class="green">Press 'J' to toggle terminal</span><br>
+                         <span class="red">WARNING! You are in Read-Only mode. Any changes made to the files will not be saved!</span><br><br>
+-                        <span class="blue">bash$ </span>
+-                        <span class="cursor">|</span>
++
++                        <div class="prompt">
++                            <span class="blue">shell$ </span>
++                            <input type="text" id="terminal-input" spellcheck="false">
++                        </div>
+                     </div>
+                 </div>
+             </div>
+@@ -95,7 +100,7 @@
+                     </div>
+ 
+                     <div id="footer-icons">
+-                        <span class="nerd-icon"></span>
++                        <span class="nerd-icon" onclick="toggleTerminal()"></span>
+                         <span class="nerd-icon"></span>
+                     </div>
+                 </div>
+diff --git a/scripts.js b/scripts.js
+index bd4ec25..6d53c00 100644
+--- a/scripts.js
++++ b/scripts.js
+@@ -1,13 +1,95 @@
+ term_object = document.getElementById('terminal'); // Getting the terminal object
+-side_bar_object = document.getElementById('sidebar');
++side_bar_object = document.getElementById('sidebar'); // Basically getting all the required elements in the next few lines
+ content_object = document.getElementById('content');
+ 
++term_input = document.getElementById('terminal-input');
++term_content = document.getElementById('terminal-content');
++
++text_object = document.getElementById('text')
++
++let term_use_flag = false // Using this flag to detect if the terminal has been used before, to detect autofocus
++
++fetchNewPrompt() // Fetching thelatest div with id = "terminal-input" and prompting for input
++
+ document.addEventListener('keydown', (e) => { // Adding a keydown listener
++    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return; // Prevents toggling when typing text
++
+     if (e.key === 'j') {
+       term_object.classList.toggle('hidden'); // Toggle the hidden class
+     }
++    if (e.key === 'f') {
++      term_object.classList.toggle('fullscreen'); // Toggle the fullscreen class
++      text_object.classList.toggle('hidden'); // Hide the text area to hide the 25px padding
++    }
+     if (e.key === 'b') {
+       side_bar_object.classList.toggle('hidden'); // Toggle the hidden class
+       content_object.classList.toggle('full-width'); // Toggle full width
+     }
+ });
++
++function newPrompt(prompt) { // Returns a terminal prompt div with desired content
++  const prompt_div = document.createElement('div')
++  prompt_div.innerHTML = `<div class="prompt">
++    <span>${prompt}</span>
++  </div>`
++
++  return prompt_div
++}
++
++function fetchNewPrompt() { // Function to fetch the newest terminal input div everytime
++  term_input = document.getElementById('terminal-input'); // Fetching the latest element with id = "terminal-input"
++
++  if(term_use_flag) { // If the terminal has been used before, autofocus on the current prompt
++    term_input.focus()
++  }
++
++  term_input.addEventListener('keydown', (e) => { // Event listener to detect keypress of Enter
++
++    if(e.key === 'Enter') {
++      const command = term_input.value.trim(); // Trimming the extra whitespaces
++
++      const prompt_div = document.createElement('div') // Creating a div for the new terminal input div
++      prompt_div.innerHTML = `<div class="prompt">
++          <span class="blue">shell$ </span>
++          <input type="text" id="terminal-input" spellcheck="false" autofocus>
++      </div>`
++
++
++      if (command) { // Command handler
++        tokens = command.split(" ")
++
++        if(tokens[0] == "echo") {
++          let s = ""
++          let i = 1
++          for(i = 1; i < tokens.length; i++) {
++            s = s + tokens[i] + " "
++          }
++
++          term_content.appendChild(newPrompt(s))
++        }
++
++        if(tokens[0] == "help") {
++          term_content.appendChild(newPrompt("shell: echo, help"))
++        }
++      }
++
++      term_input.id = ""
++      term_input.classList.add("old-input")
++      term_input.readOnly = true
++      term_content.appendChild(prompt_div)
++
++      term_use_flag = true
++
++      fetchNewPrompt()
++    }
++  });
++}
++
++function toggleTerminal() {
++  if(window.innerWidth < 768) {
++    term_object.classList.toggle("forceshow")
++  }
++  else {
++    term_object.classList.toggle("hidden")
++  }
++}
+diff --git a/styles.css b/styles.css
+index fdeeb8f..75165d1 100644
+--- a/styles.css
++++ b/styles.css
+@@ -286,7 +286,7 @@ a {
+ }
+ 
+ .content-box {
+-    border: 2px solid var(--syntax-blue);
++    border: 1.75px solid var(--syntax-blue);
+     padding: 10px;
+ }
+ 
+@@ -297,6 +297,7 @@ a {
+ 
+ #text h1 {
+     margin: 0px;
++    margin-top: 10px;
+     margin-bottom: 25px;
+     line-height: 1;
+ }
+@@ -321,6 +322,8 @@ a {
+ 
+ #terminal {
+     height: 275px;
++    overflow: auto;
++    resize: vertical;
+ }
+ 
+ @media screen and (max-width: 768px) {
+@@ -341,6 +344,8 @@ a {
+     background-color: var(--content-bg-color);
+     padding: 10px;
+     outline: none;
++    overflow-y: auto;
++    height: calc(100% - 60px); /* Fixing the height so the terminal doesn't grow in size */
+ }
+ 
+ .terminal-tab {
+@@ -357,6 +362,10 @@ a {
+     display: none !important;
+ }
+ 
++.forceshow {
++    display: inline !important;
++}
++
+ .full-width {
+     width: 100% !important; /* Override any existing width */
+ }
+@@ -370,3 +379,33 @@ a {
+ .cursor {
+     animation: cursor-blink 1s infinite;
+ }
++
++#terminal-input {
++    background-color: var(--content-bg-color);
++    color: var(--text-color);
++    border: none;
++    outline: none;
++    width: 100%;
++    font-family: 'JetBrainsMono Nerd Font';
++    font-size: 16px;
++}
++
++.old-input {
++    background-color: var(--content-bg-color);
++    color: var(--text-color);
++    border: none;
++    outline: none;
++    width: 100%;
++    font-family: 'JetBrainsMono Nerd Font';
++    font-size: 16px;
++}
++
++.prompt {
++    gap: 10px;
++    display: flex;
++    align-items: center;
++}
++
++.fullscreen {
++    height: 100vh !important;
++}
+-- 
+2.50.1 (Apple Git-155)
+
