@@ -34,6 +34,15 @@ function newPrompt(prompt) { // Returns a terminal prompt div with desired conte
   return prompt_div
 }
 
+function newErrorPrompt(prompt) { // Returns a terminal prompt div with desired content
+  const prompt_div = document.createElement('div')
+  prompt_div.innerHTML = `<div class="prompt">
+    <span class="red">${prompt}</span>
+  </div>`
+
+  return prompt_div
+}
+
 function fetchNewPrompt() { // Function to fetch the newest terminal input div everytime
   term_input = document.getElementById('terminal-input'); // Fetching the latest element with id = "terminal-input"
 
@@ -94,7 +103,22 @@ function fetchNewPrompt() { // Function to fetch the newest terminal input div e
   /_-''    ''-_\\    Battery: ${navigator.getBattery || 'N/A'}
                     Resolution: ${screen.width}x${screen.height}`
 
-        term_content.appendChild(newPrompt(output))
+        let output_small = `guest@${navigator.product}
+--------------------------
+Agent: ${navigator.userAgent}
+CPU Threads: ${navigator.hardwareConcurrency}
+RAM: ${navigator.deviceMemory || 'N/A'}
+Platform: ${navigator.platform}
+Battery: ${navigator.getBattery || 'N/A'}
+Resolution: ${screen.width}x${screen.height}`
+
+          if(window.innerWidth > 1310) {
+            term_content.appendChild(newPrompt(output))
+          }
+          else {
+            term_content.appendChild(newErrorPrompt("Can't display logo on narrow screen!"))
+            term_content.appendChild(newPrompt(output_small))
+          }
         }
 
         else {
