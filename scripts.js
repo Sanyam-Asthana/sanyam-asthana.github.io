@@ -5,8 +5,6 @@ content_object = document.getElementById('content');
 term_input = document.getElementById('terminal-input');
 term_content = document.getElementById('terminal-content');
 
-text_object = document.getElementById('text')
-
 let term_use_flag = false // Using this flag to detect if the terminal has been used before, to detect autofocus
 
 fetchNewPrompt() // Fetching thelatest div with id = "terminal-input" and prompting for input

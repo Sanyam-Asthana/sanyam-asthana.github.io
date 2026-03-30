@@ -34,7 +34,7 @@ body {
     margin: 0; /* The body imposes some amount of margin by default, so we reset it to 0 */
     font-family: 'JetBrainsMono Nerd Font'; /* My favorite font, and now yours too, without questions */
     color: var(--primary-text);
-    height: 100vh; /* The body extends all the way down so the sidebar and main content fill all the page */
+    height: 100dvh; /* The body extends all the way down so the sidebar and main content fill all the page. dvh is dynamic viewport height, and it makes it work on mobile UIs */
     display: flex; /* So we can tell main-content to take all the space */
     flex-direction: column; /* Vertical stacking */
     overflow: hidden; /* Makes so the body itself does not scroll when there's an overflow */
