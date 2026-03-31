@@ -5,7 +5,28 @@ content_object = document.getElementById('content');
 term_input = document.getElementById('terminal-input');
 term_content = document.getElementById('terminal-content');
 
+switch_theme_object = document.getElementById('switch-theme');
+
 let term_use_flag = false // Using this flag to detect if the terminal has been used before, to detect autofocus
+
+let commands = ['echo', 'ls', 'cd', 'theme', 'smolfetch', 'clear', 'help']
+let themes = ['catpuccin', 'monokai', 'github-light']
+
+document.documentElement.setAttribute('data-theme', 'catpuccin');
+
+function addCommandHints() {
+  term_input.addEventListener('input', () => {
+    if(term_input.value.split(' ')[0] == "") {
+        term_input.style.color = 'var(--text-color)'
+    }
+    else if(commands.includes(term_input.value.split(' ')[0])) {
+        term_input.style.color = 'var(--syntax-green)'
+    }
+    else {
+        term_input.style.color = 'var(--syntax-red)'
+    }
+  });
+}
 
 fetchNewPrompt() // Fetching thelatest div with id = "terminal-input" and prompting for input
 
@@ -23,6 +44,16 @@ document.addEventListener('keydown', (e) => { // Adding a keydown listener
       side_bar_object.classList.toggle('hidden'); // Toggle the hidden class
       content_object.classList.toggle('full-width'); // Toggle full width
     }
+});
+
+switch_theme_object.addEventListener('click', () => {
+  let current_theme = document.documentElement.getAttribute('data-theme');
+  if(current_theme == 'github-light') {
+      document.documentElement.setAttribute('data-theme', 'catpuccin');
+  }
+  else {
+      document.documentElement.setAttribute('data-theme', 'github-light');
+  }
 });
 
 function newPrompt(prompt) { // Returns a terminal prompt div with desired content
@@ -45,6 +76,8 @@ function newErrorPrompt(prompt) { // Returns a terminal prompt div with desired 
 
 function fetchNewPrompt() { // Function to fetch the newest terminal input div everytime
   term_input = document.getElementById('terminal-input'); // Fetching the latest element with id = "terminal-input"
+
+  addCommandHints();
 
   if(term_use_flag) { // If the terminal has been used before, autofocus on the current prompt
     term_input.focus()
@@ -86,11 +119,40 @@ function fetchNewPrompt() { // Function to fetch the newest terminal input div e
         }
 
         else if(tokens[0] == "help") {
-          term_content.appendChild(newPrompt("shell: echo, help, ls, cd, clear, smolfetch"))
+          term_content.appendChild(newPrompt("shell: " + commands.toString()))
         }
 
         else if(tokens[0] == "clear") {
-          term_content.replaceChildren();
+          term_content.replaceChildren(); // Removes all children of the terminal, clearing it
+        }
+
+        else if(tokens[0] == "theme") {
+          if(tokens[1] == "list") {
+            term_content.appendChild(newPrompt(themes.toString()))
+          }
+          else if(tokens[1] == "set") {
+              if(themes.includes(tokens[2])) {
+                document.documentElement.setAttribute('data-theme', tokens[2]);
+                term_content.appendChild(newPrompt('Set theme to ' + tokens[2]));
+              }
+              else {
+                term_content.appendChild(newErrorPrompt("Cannot find theme! Use 'theme list' for a list of themes!"))
+              }
+          }
+          else if(tokens[1] == "current") {
+              term_content.appendChild(newPrompt(document.documentElement.getAttribute('data-theme')))
+          }
+          else if(tokens[1] == "help") {
+              term_content.appendChild(newPrompt(`
+available subcommands:
+list
+set
+current
+                `))
+          }
+          else {
+              term_content.appendChild(newErrorPrompt("Invalid command! Use 'theme help' for a list of commands"))
+          }
         }
 
         else if(tokens[0] == "smolfetch") {
@@ -117,7 +179,7 @@ Resolution: ${screen.width}x${screen.height}`
           }
           else {
             term_content.appendChild(newErrorPrompt("Can't display logo on narrow screen!"))
-            term_content.appendChild(newPrompt(output_small))
+            term_content.appendChild(newPrompt(output_small)) // Hide the logo on narrow screens
           }
         }
 
@@ -126,10 +188,10 @@ Resolution: ${screen.width}x${screen.height}`
         }
       }
 
-      term_input.id = ""
-      term_input.classList.add("old-input")
+      term_input.id = "" // Making the old terminal input box invalid and freezing it
+      term_input.classList.add("old-input") // Same
       term_input.readOnly = true
-      term_content.appendChild(prompt_div)
+      term_content.appendChild(prompt_div) // Adding a new terminal prompt field
 
       term_use_flag = true
 
