@@ -1,0 +1,71 @@
+D1: Site Foundation & Personal Content (20 pts)
+
+    [✖] Build four pages: Home, About, Projects, Contact: You currently only have one physical file (index.html). While you have a sidebar with links, they appear to be internal anchors or placeholders.
+
+    [✔] Semantic landmark elements: Your code uses <header>, <main>, <nav>, <section>, <article>, and <footer>.
+
+    [✖] Projects page (3+ entries with descriptions): You have a projects.md tab, but the content for three specific projects with technology tradeoff descriptions is missing from the HTML.
+
+    [✖] About page (150+ word statement): Your introduction is currently under 100 words.
+
+    [✔] Interactive timeline (5+ milestones): You have a timeline with 5 milestones (2023–2025).
+
+    [✖] Profile Picture: There is no <img> tag pointing to /images/pfp.jpg.
+
+    [✖] Contact form with JS validation: The contact page/form is not yet implemented in the provided code.
+
+    [✖] W3C Validation screenshot: Not yet provided for your README.
+
+D2: Visual Design System (25 pts)
+
+    [✔] CSS Custom Property System: You have defined variables for colors in your :root (via [data-theme]).
+
+    [✖] Scale Requirements: You have color variables, but you lack explicit type scale (4+ named steps) and spacing scale variables in your CSS.
+
+    [✔] No hard-coded colors outside :root: Most colors use var(), though you should double-check the !important syntax rules at the bottom.
+
+    [✔] Typographic pairing: You are using 'JetBrainsMono Nerd Font', but the assignment requires a pairing (a display font and a body font).
+
+    [✔] Light and Dark theme support: You have catpuccin (dark) and github-light implemented.
+
+    [✔] Theme persistence (localStorage): Your scripts.js sets the theme to catpuccin on every load; it does not yet save or retrieve the preference from localStorage.
+
+    [✔] Theme Animation (min 400ms): Your * transition is 0.3s (300ms). The requirement is a minimum of 400ms.
+
+    [✔] Fully Responsive: You have media queries that hide the sidebar and header on smaller screens.
+
+D3: Motion & Animation (20 pts)
+
+    [✔] Hero entrance sequence (Staggered): You do not currently have @keyframes animations to stagger elements on page load.
+
+    [✖] Scroll-triggered section: You are not yet using the Intersection Observer API to trigger animations below the fold.
+
+    [✖] prefers-reduced-motion: This media query is missing from your CSS.
+
+    [✔] Purposeful micro-interaction: You have a hover effect on .timeline-card and sidebar items, though you should ensure the timing function is "non-default" (e.g., a cubic-bezier).
+
+D4: JavaScript Features (25 pts)
+
+    [✖] Group A (Data/State): Neither A1 (Filterable Projects via URL) nor A2 (Reading Progress via ES Modules) are implemented .
+
+    [✔] Group B (DOM Engineering): You have a Typed-Text style logic in your terminal, but it is not written as a reusable JS Class with the required configuration object {strings, typingSpeed, ...}.
+
+        Note: If you choose B2 (Collapsible Timeline), you must move to a single event listener on the <ul> (Event Delegation).
+
+    [✔] Separate JS files: Logic is in scripts.js.
+
+    [✔] Const/Let only: No var usage found in your script.
+
+D5: Accessibility & Code Quality (10 pts)
+
+    [✖] Lighthouse Audit: You need a screenshot showing ≥85 for Accessibility and Best Practices.
+
+    [✔] Keyboard Navigable: The site uses standard links, though you must ensure the custom terminal and tabs are also reachable via Tab.
+
+    [✖] ARIA Attributes: Your custom interactive elements (terminal, theme switch) lack aria-label, aria-expanded, or roles.
+
+    [✔] Alt Text: Not applicable yet as no <img> tags are present, but required for the PFP.
+
+D6: Deployment (Required)
+
+    [✖] Researchweb Deployment: As a dual-degree student, you must deploy to researchweb.iiit.ac.in and set chmod -R a+rx permissions.

@@ -6,17 +6,20 @@ term_input = document.getElementById('terminal-input');
 term_content = document.getElementById('terminal-content');
 
 switch_theme_object = document.getElementById('switch-theme');
+text_object = document.getElementById('text');
 
 let term_use_flag = false // Using this flag to detect if the terminal has been used before, to detect autofocus
 
 let commands = ['echo', 'ls', 'cd', 'theme', 'smolfetch', 'clear', 'help']
 let themes = ['catpuccin', 'monokai', 'github-light']
 
-document.documentElement.setAttribute('data-theme', 'catpuccin');
+term_object.classList.toggle("hidden")
+
+document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'catpuccin');
 
 function addCommandHints() {
   term_input.addEventListener('input', () => {
-    if(term_input.value.split(' ')[0] == "") {
+    if(term_input.value.split(' ')[0] === "") {
         term_input.style.color = 'var(--text-color)'
     }
     else if(commands.includes(term_input.value.split(' ')[0])) {
@@ -27,6 +30,7 @@ function addCommandHints() {
     }
   });
 }
+
 
 fetchNewPrompt() // Fetching thelatest div with id = "terminal-input" and prompting for input
 
@@ -48,11 +52,13 @@ document.addEventListener('keydown', (e) => { // Adding a keydown listener
 
 switch_theme_object.addEventListener('click', () => {
   let current_theme = document.documentElement.getAttribute('data-theme');
-  if(current_theme == 'github-light') {
+  if(current_theme === 'github-light') {
       document.documentElement.setAttribute('data-theme', 'catpuccin');
+      localStorage.setItem('theme', current_theme);
   }
   else {
       document.documentElement.setAttribute('data-theme', 'github-light');
+      localStorage.setItem('theme', current_theme);
   }
 });
 
@@ -98,7 +104,7 @@ function fetchNewPrompt() { // Function to fetch the newest terminal input div e
       if (command) { // Command handler
         tokens = command.split(" ")
 
-        if(tokens[0] == "echo") {
+        if(tokens[0] === "echo") {
           let s = ""
           let i = 1
           for(i = 1; i < tokens.length; i++) {
@@ -108,41 +114,42 @@ function fetchNewPrompt() { // Function to fetch the newest terminal input div e
           term_content.appendChild(newPrompt(s))
         }
 
-        else if(tokens[0] == "ls") {
+        else if(tokens[0] === "ls") {
           term_content.appendChild(newPrompt("home.md"))
           term_content.appendChild(newPrompt("projects.md"))
           term_content.appendChild(newPrompt("contact.md"))
         }
 
-        else if(tokens[0] == "cd") {
+        else if(tokens[0] === "cd") {
           term_content.appendChild(newPrompt("cd: Operation not permitted"))
         }
 
-        else if(tokens[0] == "help") {
+        else if(tokens[0] === "help") {
           term_content.appendChild(newPrompt("shell: " + commands.toString()))
         }
 
-        else if(tokens[0] == "clear") {
+        else if(tokens[0] === "clear") {
           term_content.replaceChildren(); // Removes all children of the terminal, clearing it
         }
 
-        else if(tokens[0] == "theme") {
-          if(tokens[1] == "list") {
+        else if(tokens[0] === "theme") {
+          if(tokens[1] === "list") {
             term_content.appendChild(newPrompt(themes.toString()))
           }
-          else if(tokens[1] == "set") {
+          else if(tokens[1] === "set") {
               if(themes.includes(tokens[2])) {
                 document.documentElement.setAttribute('data-theme', tokens[2]);
+                localStorage.setItem('theme', tokens[2]);
                 term_content.appendChild(newPrompt('Set theme to ' + tokens[2]));
               }
               else {
                 term_content.appendChild(newErrorPrompt("Cannot find theme! Use 'theme list' for a list of themes!"))
               }
           }
-          else if(tokens[1] == "current") {
+          else if(tokens[1] === "current") {
               term_content.appendChild(newPrompt(document.documentElement.getAttribute('data-theme')))
           }
-          else if(tokens[1] == "help") {
+          else if(tokens[1] === "help") {
               term_content.appendChild(newPrompt(`
 available subcommands:
 list
@@ -155,23 +162,20 @@ current
           }
         }
 
-        else if(tokens[0] == "smolfetch") {
+        else if(tokens[0] === "smolfetch") {
         let output = `        /\\          guest@${navigator.product}
        /  \\         --------------------------
       /    \\        Agent: ${navigator.userAgent}
      /      \\       CPU Threads: ${navigator.hardwareConcurrency}
     /   ,,   \\      RAM: ${navigator.deviceMemory || 'N/A'}
    /   |  |   \\     Platform: ${navigator.platform}
-  /_-''    ''-_\\    Battery: ${navigator.getBattery || 'N/A'}
-                    Resolution: ${screen.width}x${screen.height}`
+  /_-''    ''-_\\    Resolution: ${screen.width}x${screen.height}`
 
         let output_small = `guest@${navigator.product}
 --------------------------
 Agent: ${navigator.userAgent}
 CPU Threads: ${navigator.hardwareConcurrency}
-RAM: ${navigator.deviceMemory || 'N/A'}
 Platform: ${navigator.platform}
-Battery: ${navigator.getBattery || 'N/A'}
 Resolution: ${screen.width}x${screen.height}`
 
           if(window.innerWidth > 1310) {
@@ -208,3 +212,23 @@ function toggleTerminal() {
     term_object.classList.toggle("hidden")
   }
 }
+
+const options = {
+    root: null, // Null means use the browser viewport
+    threshold: 0.55 // Trigger when the whole of the element is visible
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+
+            observer.unobserve(entry.target);
+        }
+    });
+}, options);
+
+const targetSections = document.querySelectorAll('.reveal-section');
+targetSections.forEach(section => {
+    observer.observe(section);
+});

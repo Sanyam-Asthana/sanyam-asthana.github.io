@@ -1,3 +1,7 @@
+* {
+    transition: 0.4s ease-in-out;
+} /* Remove this after submission */
+
 [data-theme="catpuccin"] {
     --header-bg-color: rgb(36, 38, 51);
     --footer-bg-color: rgb(36, 38, 51);
@@ -75,7 +79,7 @@
 
 @font-face { /* JetBrains Supremacy */
     font-family: 'JetBrainsMono Nerd Font';
-    src: url('JetBrainsMonoNerdFont-Subset.woff2') format('truetype');
+    src: url('JetBrainsMonoNerdFont-Subset.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -88,6 +92,7 @@ body {
     display: flex; /* So we can tell main-content to take all the space */
     flex-direction: column; /* Vertical stacking */
     overflow: hidden; /* Makes so the body itself does not scroll when there's an overflow */
+    background-color: var(--content-bg-color);
 }
 
 a {
@@ -110,6 +115,25 @@ header {
 @media screen and (max-width: 395px) {
     header {
         display: none; /* Hide the header on narrow screens */
+    }
+}
+
+@keyframes slideHorizontal {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes slideVertical {
+    0% {
+        height: 0;
+    }
+
+    100% {
     }
 }
 
@@ -293,10 +317,7 @@ header {
     display: flex; /* To stack items horizontally */
     justify-content: space-between; /* To keep both children divs as apart form each other as possible */
     align-items: center; /* To vertically center the items */
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 5px 10px;
     background-color: var(--header-bg-color);
     border-top: 1px solid var(--primary-border);
 }
@@ -384,6 +405,7 @@ header {
 }
 
 #terminal {
+    animation: slideVertical 0.5s ease-in;
     height: 275px;
     overflow: auto;
     resize: vertical;
@@ -422,7 +444,9 @@ header {
 
 /* These few classes exist to support the toggleable functionality */
 .hidden {
-    display: none !important;
+    /*display: none !important;*/
+    height: 0 !important;
+    width: 0 !important;
 }
 
 .forceshow {
@@ -486,11 +510,11 @@ h3 {
 #timeline-content {
     margin-top: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
     /*justify-content: space-between;*/
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -509,15 +533,17 @@ h3 {
     text-align: center;
     padding: 20px;
     border: 1.75px solid var(--syntax-blue);
-    width: 12.5rem;
+    width: 60%;
     box-shadow: 5px 5px 0px 0px var(--syntax-blue); /* 3D effect */
-    transition: 0.3s ease;
+    transition: all 0.3s ease; /* for scroll reveal */
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .timeline-card:hover {
     box-shadow: 0px 0px 0px 0px;
     transform: translateX(5px) translateY(5px); /* Push button effect */
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .timeline-card h4 {
@@ -527,3 +553,42 @@ h3 {
 .timeline-card h5 {
     color: var(--syntax-red);
 }
+
+.timeline-card p {
+    max-height: 0; /* max-height transitions smoothly as opposed to height */
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover p {
+    max-height: 200px; /* a value greater than the any other paragraph */
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.show {
+    opacity: 1 !important;
+    width: 60% !important;
+}
+
+.reveal-section {
+    opacity: 0;
+    width: 10%; /* Start at 10% of width */
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Custom transition curve */
+}
+
+.timeline-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.timeline-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+
