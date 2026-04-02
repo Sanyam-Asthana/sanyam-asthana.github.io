@@ -38,9 +38,9 @@ D3: Motion & Animation (20 pts)
 
     [✔] Hero entrance sequence (Staggered): You do not currently have @keyframes animations to stagger elements on page load.
 
-    [✖] Scroll-triggered section: You are not yet using the Intersection Observer API to trigger animations below the fold.
+    [✔] Scroll-triggered section: You are not yet using the Intersection Observer API to trigger animations below the fold.
 
-    [✖] prefers-reduced-motion: This media query is missing from your CSS.
+    [✔] prefers-reduced-motion: This media query is missing from your CSS.
 
     [✔] Purposeful micro-interaction: You have a hover effect on .timeline-card and sidebar items, though you should ensure the timing function is "non-default" (e.g., a cubic-bezier).
 

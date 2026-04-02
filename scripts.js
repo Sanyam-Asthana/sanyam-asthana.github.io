@@ -232,3 +232,6 @@ const targetSections = document.querySelectorAll('.reveal-section');
 targetSections.forEach(section => {
     observer.observe(section);
 });
+
+
+

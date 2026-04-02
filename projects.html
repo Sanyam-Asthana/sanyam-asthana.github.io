@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sanyam Asthana</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanyam Asthana — dual-degree CS and Computational Linguistics student at IIIT Hyderabad. Systems programmer, NLP researcher, and CTF enthusiast.">
+    <meta name="author" content="Sanyam Asthana">
+    <meta name="keywords" content="Sanyam Asthana, IIIT Hyderabad, computational linguistics, natural language processing, systems programming, cybersecurity, programming languages">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Sanyam Asthana",
+            "email": "sanyam.asthana@gmail.com",
+            "url": "https://researchweb.iiit.ac.in/~sanyam.asthana/",
+            "sameAs": ["https://github.com/Sanyam-Asthana", "https://www.linkedin.com/in/sanyam-asthana/"]
+        }
+    </script> <!-- Good for SEO -->
+
+</head>
+<body>
+
+<header>
+    <div id="header-left">
+        <div class="red-circle"></div>
+        <div class="yellow-circle"></div>
+        <div class="green-circle"></div>
+        <h1 class="alert"><span class="nerd-icon"> </span>Read-Only Mode</h1>
+        <h1>SACode 1.0</h1>
+    </div>
+    <div id="header-right">
+    </div>
+</header>
+<main id="main-content">
+    <nav id="sidebar">
+        <p><span class="nerd-icon"> </span>SACode</p>
+        <ul>
+            <li><a href="index.html"><span class="nerd-icon md-icon"> </span>home.md</a></li>
+            <li class="focused"><a href="projects.html"><span class="nerd-icon md-icon"> </span>projects.md</a></li>
+            <li><a href="contact.html"><span class="nerd-icon md-icon"> </span>contact.md</a></li>
+        </ul>
+    </nav>
+    <section id="content">
+        <div id="file-tab-bar">
+            <div id="navigation-arrows">
+                <span class="nerd-icon"></span>
+                <span class="nerd-icon"></span>
+            </div>
+            <div class="file-tab">
+                <a href="index.html">home.md</a>
+            </div>
+            <div class="file-tab file-tab-focused">
+                <a href="projects.html">projects.md</a>
+            </div>
+            <div class="file-tab">
+                <a href="contact.html">contact.md</a>
+            </div>
+        </div>
+
+        <article id="text" spellcheck="false">
+            <h2><span class="dim">#</span><span class="green">Projects</span></h2>
+
+            <div class="selector-tags">
+                <div class="selector-tag">
+                    <input type="checkbox" id="check-python" name="check-python" checked>
+                    <label for="check-python">Python</label>
+                </div>
+                <div class="selector-tag">
+                    <input type="checkbox" id="check-c" name="check-c" checked>
+                    <label for="check-c">C</label>
+                </div>
+                <div class="selector-tag">
+                    <input type="checkbox" id="check-go" name="check-go" checked>
+                    <label for="check-go">Go</label>
+                </div>
+                <div class="selector-tag">
+                    <input type="checkbox" id="check-web" name="check-web" checked>
+                    <label for="check-web">Web</label>
+                </div>
+                <div class="selector-tag">
+                    <input type="checkbox" id="check-security" name="check-security" checked>
+                    <label for="check-security">Security</label>
+                </div>
+                <div class="selector-tag">
+                    <input type="checkbox" id="check-linguistics" name="check-linguistics" checked>
+                    <label for="check-linguistics">Linguistics</label>
+                </div>
+                <div class="selector-tag">
+                    <input type="checkbox" id="check-systems" name="check-systems" checked>
+                    <label for="check-systems">Systems</label>
+                </div>
+            </div>
+
+            <section id="project-cards">
+
+                <div class="project-card python web security">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">Sammy</h3>
+                            <h4 class="project-subtitle">Web-reconnaissance and security tool</h4>
+
+                            <ul class="project-stack">
+                                <li>Python</li>
+                                <li>Web</li>
+                                <li>Security</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/sammy-web?style=for-the-badge">
+<!--                                <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/sammy-web?style=for-the-badge">-->
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="python.png" alt="python-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        Developed and published Sammy, an open-source web reconnaissance CLI tool for security testing and site analysis with more than 1.5k downloads (available on PyPI).
+
+                        <ol>
+                            <li>Built multi-threaded directory brute-forcer with configurable concurrency and progress tracking</li>
+
+                            <li>Implemented web crawler with session management, cookie persistence, and interactive shell for site navigation</li>
+
+                            <li>Designed regex-based HTML parsing for extracting hidden fields, comments, and linked resources</li>
+
+                            <li>Implemented an automated report feature which generates a readable summary based on the analysis.</li>
+
+                            <li>Published as Python package with proper documentation and error handling.</li>
+                        </ol>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/sammy-web" target="_blank">GitHub</a>
+                            <a href="https://pypi.org/project/sammy-web" target="_blank">PyPI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card c systems">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">Planck</h3>
+                            <h4 class="project-subtitle">A minimal scripting language designed to be embedded</h4>
+
+                            <ul class="project-stack">
+                                <li>C</li>
+                                <li>Systems</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/Planck?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="c.png" alt="c-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>Building a lightweight interpreted scripting language with a minimal instruction set.</p>
+
+                        <p>Planck was originally designed as a scripting engine for BASED (Basic Automated Shell for Embedded Devices), a custom embedded shell firmware for microcontrollers. It is heavily inspired from the RISC-V instruction set.</p>
+
+                        <ol>
+                            <li>Has a minimal instruction set of <10 instructions, while still aiming to be Turing complete via conditional jumps and arithmetic.</li>
+
+                            <li>No heap allocations are done during the execution of a Planck program. This is done to avoid fragmentation of memory in microcontroller environments.</li>
+
+                            <li>The interpreter's compiled code footprint is under 3KB.</li>
+                        </ol>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/Planck" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card c systems">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">BASED</h3>
+                            <h4 class="project-subtitle">A userland to interact with microcontrollers</h4>
+
+                            <ul class="project-stack">
+                                <li>C</li>
+                                <li>Systems</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/BASED?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="c.png" alt="c-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>Basic Automated Shell for Embedded Devices</p>
+
+                        <p>Building a lightweight and minimal userland to interact with microcontrollers. BASED was designed originally to interact with an ESP32 C3-Supermini, which has FreeRTOS as a kernel, but no interactive interface to work with it.</p>
+
+                        <p>The goal of BASED was to be minimal enough to run on 400KB of SRAM with 160MHz of clock speed of the ESP32 C3-supermini, and still be functional enough for file management, scripting, and interactive use.</p>
+
+                        <ol>
+                            <li>Supports writing and executing programs written in a custom-made scripting language with a minimal instruction set (Planck).</li>
+
+                            <li>Implements minimal versions of usual Unix-like commands from scratch, like echo, cd, ls, cat etc.</li>
+
+                            <li>Supports creating text files using a built-in text-editor called "base"</li>
+
+                            <li>The complete firmware (including the Planck interpreter) has a compiled code footprint of ~8KB with zero heap allocation to prevent fragmentation of memory and unpredictability of the required memory of the program.</li>
+                        </ol>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/BASED" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card go web security">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">SammyGo</h3>
+                            <h4 class="project-subtitle">Rewrite of Sammy in Go</h4>
+
+                            <ul class="project-stack">
+                                <li>Go</li>
+                                <li>Web</li>
+                                <li>Security</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/SammyGo?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="go.png" alt="go-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>SammyGo is a web reconnaissance and security testing tool.</p>
+
+                        <p>Rewriting "Sammy" (web-recon tool) in Golang.</p>
+
+                        <ol>
+                            <li>Cleaning up and and modularizing code</li>
+                            <li>Utilizing goroutines for faster and efficient directory busting, as compared to ThreadPoolExecutor in Python.</li>
+                        </ol>
+
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/SammyGo" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card python web security linguistics">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">Cryppy</h3>
+                            <h4 class="project-subtitle">Quick online decrypter tool</h4>
+
+                            <ul class="project-stack">
+                                <li>Python</li>
+                                <li>Web</li>
+                                <li>Security</li>
+                                <li>Linguistics</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/Cryppy?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="python.png" alt="python-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>Cryppy is an online tool for quickly decrypting encrypted strings.</p>
+
+                        <p>Cryppy predicts the type of encryption based on pattern recognition, decrypts the string and presents the valid results.</p>
+
+                        <ol>
+                            <li>Core engine made using Python, and packaged to a web app using FastAPI.</li>
+                            <li>Full server-side rendering using Jinja2 templates.</li>
+                            <li>Containerised using Docker and deployed using HuggingFace Spaces.</li>
+                            <li>Regex-based pattern recognition for encryptions.</li>
+                            <li>Validation of results based on the type of unicode characters.</li>
+                        </ol>
+
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/Cryppy" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card css web">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">Notex</h3>
+                            <h4 class="project-subtitle">Classless CSS framework focused at minimalism</h4>
+
+                            <ul class="project-stack">
+                                <li>CSS</li>
+                                <li>Web</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/Notex?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="css.png" alt="css-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>Notex (pronounced as "Notek") is a classless CSS framework, which turns semantic HTML to elegantly-styled pages.</p>
+
+                        <p>Notex was originally created for my project demos and articles, where I had to spend time styling the page, rather than focusing on the content itself.</p>
+
+                        <p>The name originated from a joke that the HTML pages are not LaTeX, hence "No TeX".</p>
+
+                        <ol>
+                            <li>Supports multiple color themes.</li>
+                            <li>Accessible over the CDN using jsDelivr.</li>
+                            <li>Fully responsive on all screen sizes.</li>
+                        </ol>
+
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/Notex" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card go web">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">Knolfetch</h3>
+                            <h4 class="project-subtitle">An API-based research fetcher</h4>
+
+                            <ul class="project-stack">
+                                <li>Go</li>
+                                <li>Web</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/Knolfetch?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="go.png" alt="go-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>Building a CLI-tool to fetch the latest research from arxiv.org</p>
+
+                        <p>Knolfetch is like fastfetch, but for researchers. It fetches the latest researches from arxiv.org and dumps them into the terminal, with a clean formatting. I created Knolfetch originally so I could see the recent advances in my field whenever I open the CLI (setting Knolfetch as a startup script).</p>
+
+                        <ol>
+                            <li>Periodic fetch cycle to create cache, preventing API wait times during program execution.</li>
+
+                            <li>Completely customizable using a configuration file, including research categories, and visibility of individual elements for each category.</li>
+                        </ol>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/Knolfetch" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card python linguistics">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">RedKnot</h3>
+                            <h4 class="project-subtitle">A dependency graph visualiser</h4>
+
+                            <ul class="project-stack">
+                                <li>Python</li>
+                                <li>Linguistics</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/RedKnot?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="python.png" alt="python-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>Built a Python-based CLI tool that parses C codebases to generate directed dependency graphs using Mermaid.js. Developed and published as a PyPI package with 500+ downloads.</p>
+
+                        <ol>
+                            <li>Regex based checking for file imports</li>
+
+                            <li>Implemented a mermaid.js code generator based on the dependency lists</li>
+
+                            <li>Helpful to visualize dependency errors such as circular dependencies</li>
+                        </ol>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/RedKnot" target="_blank">GitHub</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="project-card python linguistics">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title">TSim</h3>
+                            <h4 class="project-subtitle">A string similarity quantifier and OCR corrector</h4>
+
+                            <ul class="project-stack">
+                                <li>Python</li>
+                                <li>Linguistics</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/TSim?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="python.png" alt="python-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>Developed a Python-based utility to resolve orthographic variances in person-name data. Focused on reducing noise in user-generated strings through a multi-layered normalization pipeline.</p>
+
+                        <p>Packaged and Published on PyPI with 100+ downloads.</p>
+
+                        <ol>
+                            <li>Orthographic Normalization: Implemented a custom OCR-correction mapping to resolve character-substitution errors (e.g., 5 → S).</li>
+
+                            <li>Token-Level Determinism: Leveraged alphabetical token sorting to neutralize word-order permutations (e.g., "Last, First" vs "First Last").</li>
+
+                            <li>Fuzzy Logic: Applied string-distance metrics to quantify similarity confidence, handling typos and abbreviations effectively.</li>
+                        </ol>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/TSim" target="_blank">GitHub</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+        </article>
+
+        <section id="terminal">
+            <div id="terminal-tab-bar">
+                <div class="terminal-tab">
+                    SACode - shell
+                </div>
+            </div>
+            <div id="terminal-content">
+                <span class="green">Press 'J' to toggle terminal</span><br>
+                <br>
+
+                <div class="prompt">
+                    <label for="terminal-input" class="blue">shell$</label>
+                    <input type="text" id="terminal-input" spellcheck="false">
+                </div>
+            </div>
+        </section>
+    </section>
+</main>
+
+<footer>
+    <div id="footer-div">
+        <div id="footer-left">
+                    <span class="nerd-icon"> </span
+                    ><a href="#">GitHub</a>
+
+            <span class="nerd-icon"> </span
+            ><a href="#">LinkedIn</a>
+        </div>
+
+        <div id="footer-right">
+            <div id="vim-normal">
+                NORMAL
+            </div>
+            <div id="markdown-text">
+                Markdown
+            </div>
+
+            <div id="footer-icons">
+                <span class="nerd-icon" onclick="toggleTerminal()"> </span>
+                <span class="nerd-icon" id="switch-theme"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script src="filter.js"></script>
+</body>
+</html>

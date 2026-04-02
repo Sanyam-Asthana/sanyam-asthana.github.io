@@ -84,6 +84,24 @@
     font-style: normal;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.1s !important;
+        transition-delay: 0s !important;
+    }
+
+    .reveal-section, .timeline-card, .timeline-card p {
+        transform: none !important;
+        width: 45% !important;
+        opacity: 1 !important;
+    }
+}
+
 body {
     margin: 0; /* The body imposes some amount of margin by default, so we reset it to 0 */
     font-family: 'JetBrainsMono Nerd Font'; /* My favorite font, and now yours too, without questions */
@@ -302,6 +320,22 @@ header {
     font-size: 18px;
     overflow-y: auto; /* So only this text area scrolls */
     flex: 1; /* Takes up all available vertical space. This is why content was a flex */
+}
+
+@media screen and (max-width: 768px) {
+    /*#text {*/
+    /*    margin-left: 0;*/
+    /*    margin-right: 0;*/
+    /*}*/
+
+    #project-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* aligns the cards horizontally so they don't flow. yes the code is bad */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .dim {
@@ -591,4 +625,108 @@ h3 {
     width: 100%;
 }
 
+.project-card {
+    border: 1.75px solid var(--syntax-blue);
+    width: 80%;
+    padding: 20px;
+    box-shadow: 5px 5px 0px 0px var(--syntax-blue); /* 3D effect */
+    transition: all 0.3s ease; /* for scroll reveal */
+    margin: 40px;
+}
+
+.project-card:hover {
+    box-shadow: 0px 0px 0px 0px;
+    transform: translateX(5px) translateY(5px); /* Push button effect */
+    transition: all 0.3s ease;
+}
+
+.project-title {
+    color: var(--syntax-red);
+}
+
+.project-stack {
+    color: var(--syntax-green);
+}
+
+.project-card .project-description {
+    opacity: 0;
+    max-height: 0;
+}
+
+.project-card:hover .project-description {
+    opacity: 1;
+    max-height: 2000px;
+}
+
+.project-card ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-header-left {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.project-header-right {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.project-header-right img {
+    width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .project-header-right img {
+        width: 70px;
+    }
+}
+
+.selector-tags {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.selector-tag input {
+    display: none;
+    cursor: pointer;
+}
+
+.selector-tag label {
+    border: 1.75px solid var(--syntax-blue);
+    color: var(--syntax-blue);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.selector-tag label:hover {
+    background-color: var(--syntax-blue);
+    color: var(--content-bg-color);
+}
+
+.selector-tag input:checked + label {
+    background-color: var(--syntax-blue) !important;
+    color: var(--content-bg-color) !important;
+}
+
+@media screen and (max-width: 768px) {
+    #project-cards {
+        margin: 0 auto;
+        padding: 0;
+    }
+}
 
