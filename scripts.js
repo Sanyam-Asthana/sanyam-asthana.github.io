@@ -204,13 +204,12 @@ Resolution: ${screen.width}x${screen.height}`
   });
 }
 
+if(window.innerWidth < 768) {
+    term_object.classList.add("hidden")
+}
+
 function toggleTerminal() {
-  if(window.innerWidth < 768) {
-    term_object.classList.toggle("forceshow")
-  }
-  else {
     term_object.classList.toggle("hidden")
-  }
 }
 
 const options = {

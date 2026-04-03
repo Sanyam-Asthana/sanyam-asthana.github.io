@@ -445,12 +445,6 @@ header {
     resize: vertical;
 }
 
-@media screen and (max-width: 768px) {
-    #terminal {
-        display: none; /* Hide the terminal on narrow screens */
-    }
-}
-
 #terminal-tab-bar {
     background-color: var(--header-bg-color);
     border-top: 1px solid var(--primary-border);
@@ -730,3 +724,26 @@ h3 {
     }
 }
 
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+#hero h1 {
+    color: var(--syntax-green);
+    font-size: 60px;
+    line-height: 1;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    #vim-normal {
+        display: none;
+    }
+    #markdown-text {
+        display: none;
+    }
+}

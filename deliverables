@@ -46,7 +46,7 @@ D3: Motion & Animation (20 pts)
 
 D4: JavaScript Features (25 pts)
 
-    [✖] Group A (Data/State): Neither A1 (Filterable Projects via URL) nor A2 (Reading Progress via ES Modules) are implemented .
+    [✔] Group A (Data/State): Neither A1 (Filterable Projects via URL) nor A2 (Reading Progress via ES Modules) are implemented .
 
     [✔] Group B (DOM Engineering): You have a Typed-Text style logic in your terminal, but it is not written as a reusable JS Class with the required configuration object {strings, typingSpeed, ...}.
 
