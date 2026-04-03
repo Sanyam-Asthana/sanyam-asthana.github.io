@@ -38,10 +38,10 @@
             <nav id="sidebar">
                 <p><span class="nerd-icon"> </span>SACode</p>
                 <ul>
-                    <li class="focused"><a href="index.html"><span class="nerd-icon md-icon"> </span>index.md</a></li>
+                    <li><a href="index.html"><span class="nerd-icon md-icon"> </span>index.md</a></li>
                     <li><a href="about.html"><span class="nerd-icon md-icon"> </span>about.md</a></li>
                     <li><a href="projects.html"><span class="nerd-icon md-icon"> </span>projects.md</a></li>
-                    <li><a href="contact.html"><span class="nerd-icon md-icon"> </span>contact.md</a></li>
+                    <li class="focused"><a href="contact.html"><span class="nerd-icon md-icon"> </span>contact.md</a></li>
                 </ul>
             </nav>
             <section id="content">
@@ -50,7 +50,7 @@
                         <span class="nerd-icon"></span>
                         <span class="nerd-icon"></span>
                     </div>
-                    <div class="file-tab file-tab-focused">
+                    <div class="file-tab">
                         <a href="index.html">index.md</a>
                     </div>
                     <div class="file-tab">
@@ -59,7 +59,7 @@
                     <div class="file-tab">
                         <a href="projects.html">projects.md</a>
                     </div>
-                    <div class="file-tab">
+                    <div class="file-tab file-tab-focused">
                         <a href="contact.html">contact.md</a>
                     </div>
                 </div>
@@ -132,8 +132,8 @@
                     </div>
 
                     <div id="footer-icons">
-                        <span class="nerd-icon" onclick="toggleTerminal()"> </span>
-                        <span class="nerd-icon" id="switch-theme"></span>
+                        <span class="nerd-icon" onclick="toggleTerminal()" role="button" tabindex="0" aria-label="Toggle Terminal" aria-controls="terminal"> </span>
+                        <span class="nerd-icon" id="switch-theme" role="button" tabindex="0" aria-label="Toggle Theme" aria-controls="theme"></span>
                     </div>
                 </div>
             </div>
