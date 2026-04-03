@@ -1,6 +1,6 @@
 /* I did the following at 5 in the morning, so it better work */
 
-const technologies = ['python', 'c', 'go', 'web', 'linguistics', 'security', 'systems']; // Listing all the technologies
+const technologies = ['python', 'c', 'go', 'web', 'linguistics', 'security', 'systems', 'minecraft']; // Listing all the technologies
 
 let searchTagsList = [];
 const searchTags = new URLSearchParams(window.location.search); // Getting the current search tags

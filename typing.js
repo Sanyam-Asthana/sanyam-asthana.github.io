@@ -3,8 +3,8 @@ class TypeWriter {
         this.texts = config.strings;
         this.typingObject = document.getElementById(config.elementId);
 
-        this.speed = config.typingSpeed || 100;
-        this.pause = config.pauseTime || 500;
+        this.speed = config.typingSpeed || 70;
+        this.pause = config.pauseTime || 250;
     }
 
     typeText(index) {
@@ -49,10 +49,11 @@ const myTypingEffect = new TypeWriter({
         'A systems programmer',
         'A security enthusiast',
         'An AI/ML enjoyer',
-        'A linguist'
+        'A linguist',
+        '(also a Minecrafter)'
     ],
-    typingSpeed: 100,
-    pauseTime: 500
+    typingSpeed: 70,
+    pauseTime: 250
 });
 
 myTypingEffect.start();

@@ -51,7 +51,7 @@
     --green-circle: rgb(18, 219, 119);
     --primary-border: rgb(70, 68, 72);
     --file-focus-color: rgb(60, 58, 61);
-    --sidebar-hover-bg: rgb(50, 48, 52);
+    --sidebar-hover-bg: rgb(60, 58, 61);
     --content-bg-color: rgb(44, 42, 46);
     --html-icon-color: rgb(213, 92, 38);
     --alert-bg-color: rgb(55, 53, 53);
@@ -128,16 +128,14 @@
 
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
-        animation-delay: -1ms !important;
-        animation-duration: 1ms !important;
-        animation-iteration-count: 1 !important;
-        background-attachment: initial !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.1s !important;
-        transition-delay: 0s !important;
+        animation-delay: -1ms !important; /* The delay is set to -1ms so the animation finishes instantly */
+        animation-duration: 1ms !important; /* The duration is set to 1ms instead of 0 so the JS does not break */
+        scroll-behavior: auto !important; /* Disables smooth scroll on the page */
+        transition-duration: 0.1s !important; /* Stripping the transition duration */
+        transition-delay: 0s !important; /* Transition delay can be 0. The JS does not break */
     }
 
-    .reveal-section, .timeline-card, .timeline-card p {
+    .reveal-section, .timeline-card, .timeline-card p { /* self-explanatory */
         transform: none !important;
         width: 45% !important;
         opacity: 1 !important;
@@ -791,6 +789,11 @@ h3 {
 
 #hero h3 {
     font-size: var(--text-lg);
+}
+
+#typing-div {
+    display: flex;
+    flex-direction: row;
     animation: slide-up 1s ease-in;
     animation-delay: 1s;
     animation-fill-mode: backwards;
@@ -834,10 +837,6 @@ h3 {
     #cursor {
         font-size: var(--text-md);
     }
-}
-
-#cursor {
-    animation: cursor-blink 1s infinite;
 }
 
 form input[type=text] {

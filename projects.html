@@ -96,6 +96,10 @@
                     <input type="checkbox" id="check-systems" name="check-systems" checked>
                     <label for="check-systems">Systems</label>
                 </div>
+                <div class="selector-tag">
+                    <input type="checkbox" id="check-minecraft" name="check-minecraft" checked>
+                    <label for="check-minecraft">Minecraft</label>
+                </div>
             </div>
 
             <section id="project-cards">
@@ -122,7 +126,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="python.png" alt="python-logo">
+                            <img src="images/python.png" alt="python-logo">
                         </div>
                     </div>
 
@@ -140,6 +144,10 @@
 
                             <li>Published as Python package with proper documentation and error handling.</li>
                         </ol>
+
+                        <p>Sammy was built because when I used to solve web-related challenges in CTFs, I had to fire up a lot of different tools. I wanted a tool which had the functionality of all of them, not necessarily of the same quality, but "just enough" to get the work done.</p>
+
+                        <p>Using ThreadPoolExecutor for multithreaded directory busting was both a good and a bad idea. Because of multithreading, the directory busting was incredibly fast, but the higher the number of threads, the higher was the compute. I later solved this problem by completely rewriting Sammy in Go, and giving birth to SammyGo.</p>
 
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/sammy-web" target="_blank">GitHub</a>
@@ -168,7 +176,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="c.png" alt="c-logo">
+                            <img src="images/c.png" alt="c-logo">
                         </div>
                     </div>
 
@@ -184,6 +192,12 @@
 
                             <li>The interpreter's compiled code footprint is under 3KB.</li>
                         </ol>
+
+                        <p>Planck was created to fulfil the need for a scripting language for my ESP32 userland firmware, BASED. I needed a language with a minimal interpreter, so that I could run short scripts while being inside the firmware. The interpreter had to be really small, as the ESP only had 400KB of SRAM.</p>
+
+                        <p>I am still working on this project, implementing a label system, along with loops and conditionals for turing completeness.</p>
+
+
 
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/Planck" target="_blank">GitHub</a>
@@ -211,7 +225,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="c.png" alt="c-logo">
+                            <img src="images/c.png" alt="c-logo">
                         </div>
                     </div>
 
@@ -231,6 +245,10 @@
 
                             <li>The complete firmware (including the Planck interpreter) has a compiled code footprint of ~8KB with zero heap allocation to prevent fragmentation of memory and unpredictability of the required memory of the program.</li>
                         </ol>
+
+                        <p>BASED was born out of my interest in the RISC-V architecture, while I was taking the course "Computer Systems Organization". I bought an ESP32 with a RISC-V core, so I could write my assembly programs directly on the metal. I soon realised that I can do any kind of compute with a processor, and what I needed was a way to interact with the firmware of the ESP32, FreeRTOS. Hence, BASED was born. The end goal was to solve a CodeForces question, completely on the firmware.</p>
+
+                        <p>I am still working on the project, improving the text editor, "base" and "Planck", the scripting language, both of which are essential for the working of BASED.</p>
 
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/BASED" target="_blank">GitHub</a>
@@ -259,7 +277,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="go.png" alt="go-logo">
+                            <img src="images/go.png" alt="go-logo">
                         </div>
                     </div>
 
@@ -273,6 +291,9 @@
                             <li>Utilizing goroutines for faster and efficient directory busting, as compared to ThreadPoolExecutor in Python.</li>
                         </ol>
 
+                        <p>SammyGo is the reincarnation of Sammy. Some previous mistakes are resolved in this iteration. The motivation behind rewriting Sammy was to have a blazing fast directory buster. I was searching for alternatives, and I found Go, and of course, goroutines. Go seemed to be a fun language, and a very useful one too. Hence, I learned Go, initially with the sole purpose of rewriting Sammy. Consequently, I found a love for Go, and am looking forward to do more projects in this wonderful languag Consequently, I found a love for Go, and am looking forward to do more projects in this wonderful language.</p>
+
+                        <p>I am still working on SammyGo, implementing the web crawler, and Sammy's flagship feature, the automatic report generation.</p>
 
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/SammyGo" target="_blank">GitHub</a>
@@ -302,7 +323,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="python.png" alt="python-logo">
+                            <img src="images/python.png" alt="python-logo">
                         </div>
                     </div>
 
@@ -319,6 +340,9 @@
                             <li>Validation of results based on the type of unicode characters.</li>
                         </ol>
 
+                        <p>Cryppy was created as a need for a universal tool for decryption, in cryptography challenges in CTFs. Recognising a string of encrypted text, and then going to websites to decrypt that specific encryption was tedious. Hence, Cryppy features automatic detection and decryption, all from a click of a single button. Cryppy is special to me, as it is my first project which is dockerised and deployed to the web. I also learned FastAPI during the creation of this project.</p>
+
+                        <p>I am still working on Cryppy, implementing a human-readable text recognition system, which is essential for quick results. Testing various machine learning and computational linguistic techniques to get the best results, including n-grams and RNNs.</p>
 
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/Cryppy" target="_blank">GitHub</a>
@@ -346,7 +370,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="css.png" alt="css-logo">
+                            <img src="images/css.png" alt="css-logo">
                         </div>
                     </div>
 
@@ -363,6 +387,9 @@
                             <li>Fully responsive on all screen sizes.</li>
                         </ol>
 
+                        <p>Notex was born in the process of creating Cryppy. Since Cryppy was my first project deployed to web, I could foresee many projects being deployed in the near future. Hence, I needed a quick but consistent styling in all of my projects' web demonstrations. Hence, Notex was created so I could just drop a single CDN tag and get my semantic HTML fully styled at the press of a key.</p>
+
+                        <p>I am still working on Notex, implementing styling for input elements.</p>
 
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/Notex" target="_blank">GitHub</a>
@@ -390,7 +417,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="go.png" alt="go-logo">
+                            <img src="images/go.png" alt="go-logo">
                         </div>
                     </div>
 
@@ -404,6 +431,10 @@
 
                             <li>Completely customizable using a configuration file, including research categories, and visibility of individual elements for each category.</li>
                         </ol>
+
+                        <p>Knolfetch was born one day when I sat staring at my fastfetch output, and reconsidering my life choices. I wanted something more useful to me. I though about the usefulness of the latest advances in my research fields, dumped directly in my terminal. Hence, I created Knolfetch, a replacement of fastfetch, at least for me.</p>
+
+                        <p>Knolfetch is complete as of now, but I may push more updates. I really wanted a logo like fastfetch, but the matter of the research papers take a lot of space, and a logo does not seem practical.</p>
 
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/Knolfetch" target="_blank">GitHub</a>
@@ -431,7 +462,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="python.png" alt="python-logo">
+                            <img src="images/python.png" alt="python-logo">
                         </div>
                     </div>
 
@@ -445,6 +476,10 @@
 
                             <li>Helpful to visualize dependency errors such as circular dependencies</li>
                         </ol>
+
+                        <p>RedKnot was created when I wanted to visualise how the different files of my C project (which was the course project for the course "Computer Programming") connect.</p>
+
+                        <p>I am still working on the project, with some plans to support more languages, including Python and Java.</p>
 
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/RedKnot" target="_blank">GitHub</a>
@@ -473,7 +508,7 @@
                         </div>
 
                         <div class="project-header-right">
-                            <img src="python.png" alt="python-logo">
+                            <img src="images/python.png" alt="python-logo">
                         </div>
                     </div>
 
@@ -490,8 +525,108 @@
                             <li>Fuzzy Logic: Applied string-distance metrics to quantify similarity confidence, handling typos and abbreviations effectively.</li>
                         </ol>
 
+                        <p>TSim was born when I was given the task to validate the uploaded names of people with their uploaded IDs, during my tenure as a Research Assistant at the Division of Flexible Learning, IIIT-H. I encountered a lot of issues with the OCR, and the general structuring of names, where someone would put their last name first on some places, and the contrary on some other places. Hence, I made TSim to compensate for the name ordering and OCR errors.</p>
+
+                        <p>Though the project is complete, I think that the codebase and the APIs could've been better. The code is messy right now, and the algorithm used for checking the similarity is completely custom made, but is held together by duct tape.</p>
+
                         <div class="project-links">
                             <a href="https://github.com/Sanyam-Asthana/TSim" target="_blank">GitHub</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="project-card python linguistics">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title"><span class="dim">##</span>TSim</h3>
+                            <h4 class="project-subtitle">A string similarity quantifier and OCR corrector</h4>
+
+                            <ul class="project-stack">
+                                <li>Python</li>
+                                <li>Linguistics</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="GitHub Created At" src="https://img.shields.io/github/created-at/Sanyam-Asthana/TSim?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="images/python.png" alt="python-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <p>Developed a Python-based utility to resolve orthographic variances in person-name data. Focused on reducing noise in user-generated strings through a multi-layered normalization pipeline.</p>
+
+                        <p>Packaged and Published on PyPI with 100+ downloads.</p>
+
+                        <ol>
+                            <li>Orthographic Normalization: Implemented a custom OCR-correction mapping to resolve character-substitution errors (e.g., 5 → S).</li>
+
+                            <li>Token-Level Determinism: Leveraged alphabetical token sorting to neutralize word-order permutations (e.g., "Last, First" vs "First Last").</li>
+
+                            <li>Fuzzy Logic: Applied string-distance metrics to quantify similarity confidence, handling typos and abbreviations effectively.</li>
+                        </ol>
+
+                        <p>TSim was born when I was given the task to validate the uploaded names of people with their uploaded IDs, during my tenure as a Research Assistant at the Division of Flexible Learning, IIIT-H. I encountered a lot of issues with the OCR, and the general structuring of names, where someone would put their last name first on some places, and the contrary on some other places. Hence, I made TSim to compensate for the name ordering and OCR errors.</p>
+
+                        <p>Though the project is complete, I think that the codebase and the APIs could've been better. The code is messy right now, and the algorithm used for checking the similarity is completely custom made, but is held together by duct tape.</p>
+
+                        <div class="project-links">
+                            <a href="https://github.com/Sanyam-Asthana/TSim" target="_blank">GitHub</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="project-card minecraft">
+                    <div class="project-header">
+                        <div class="project-header-left">
+                            <h3 class="project-title"><span class="dim">##</span>Mactrics</h3>
+                            <h4 class="project-subtitle">A optimization modpack for Minecraft, aimed at Apple Silicon</h4>
+
+                            <ul class="project-stack">
+                                <li>Minecraft</li>
+                            </ul>
+
+                            <div class="project-badges">
+                                <img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/cBR77hhG?style=for-the-badge">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="project-header-right">
+                            <img src="images/minecraft.png" alt="minecraft-logo">
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        Mactrics is an optimization modpack aimed primarily at Apple Silicon devices. The modpack improves the performance of the game by using the Vulkan API for rendering instead of OpenGL, leveraging the VulkanMod by xCollateral.
+
+                        <p><strong>How does it work?</strong></p>
+
+                        <p>Apple Silicon neither supports OpenGL nor Vulkan out of the box. Apple Silicon uses Metal API. However, Vulkan calls can be translated to Metal calls using a translation layer called MoltenVK (Which VulkanMod is bundled with). Vulkan performs better with Metal due to its modern architecure as opposed to OpenGL.</p>
+
+                        <p><strong>What is the purpose of Mactrics?</strong></p>
+
+                        <p>Due to VulkanMod using an entirely different renderer than OpenGL, it breaks many existing mods. In such a case, finding compatible mods which work well together to give a performance boost becomes difficult. Mactrics has an assortment of mods from well known developers and the non-compatibility taken care of so you don't have to get into the hassle of incompatibilities.</p>
+
+                        <p><strong>Does it support shaders?</strong></p>
+
+                        <p>Vulkan API is not as prevalent in the Minecraft community right now as OpenGL is. As a result, the shaders are almost always written for OpenGL, rather than Vulkan. Hence, there is no shader support when using Vulkan (at the moment).</p>
+
+                        <p>I made Mactrics when I got my new MacBook Air M4, and I wanted to optimize it to the fullest, so I could run Minecraft at crazy frames. I gathered all of my Minecraft optimization mod knowledge I had gathered over the years, and compiled them into this modpack. Minecraft runs at a stable 500 FPS on my Mac now.</p>
+
+                        <p>Consistently updating and keeping up with the latest versions of mods and Minecraft.</p>
+                        <div class="project-links">
+                            <a href="https://modrinth.com/modpack/mactrics" target="_blank">Modrinth</a>
                         </div>
 
                     </div>
