@@ -771,3 +771,74 @@ h3 {
 #cursor {
     animation: cursor-blink 1s infinite;
 }
+
+input[type=text] {
+    background-color: var(--content-bg-color);
+    border: 1.75px solid var(--syntax-blue);
+    color: var(--primary-text);
+    font-family: 'JetBrainsMono Nerd Font', Arial, sans-serif;
+    padding: 5px;
+    width: 50ch;
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    input[type=text] {
+        width: 40ch;
+    }
+}
+
+input[type=text]:focus-visible {
+    outline: 1.75px solid var(--syntax-red);
+    outline-offset: 2px;
+}
+
+textarea {
+    background-color: var(--content-bg-color);
+    border: 1.75px solid var(--syntax-blue);
+    color: var(--primary-text);
+    font-family: 'JetBrainsMono Nerd Font', Arial, sans-serif;
+    padding: 5px;
+    width: 42ch;
+    height: 30ch;
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    textarea {
+        width: 33ch;
+    }
+}
+
+textarea:focus-visible {
+    outline: 1.75px solid var(--syntax-red);
+    outline-offset: 2px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form button {
+    background-color: var(--content-bg-color);
+    color: var(--syntax-blue);
+    border: 1.75px solid var(--syntax-blue);
+    width: fit-content;
+    font-family: 'JetBrainsMono Nerd Font', Arial, sans-serif;
+    padding: 5px;
+    font-size: 15px;
+}
+
+form button:hover {
+    background-color: var(--syntax-blue);
+    color: var(--content-bg-color) !important;
+}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Sanyam Asthana</title>
+        <link rel="stylesheet" href="styles.css" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Sanyam Asthana — dual-degree CS and Computational Linguistics student at IIIT Hyderabad. Systems programmer, NLP researcher, and CTF enthusiast.">
+        <meta name="author" content="Sanyam Asthana">
+        <meta name="keywords" content="Sanyam Asthana, IIIT Hyderabad, computational linguistics, natural language processing, systems programming, cybersecurity, programming languages">
+
+        <script type="application/ld+json">
+           {
+             "@context": "https://schema.org",
+             "@type": "Person",
+             "name": "Sanyam Asthana",
+             "email": "sanyam.asthana@gmail.com",
+             "url": "https://researchweb.iiit.ac.in/~sanyam.asthana/",
+             "sameAs": ["https://github.com/Sanyam-Asthana", "https://www.linkedin.com/in/sanyam-asthana/"]
+           }
+        </script> <!-- Good for SEO -->
+
+    </head>
+    <body>
+
+        <header>
+                <div id="header-left">
+                    <div class="red-circle"></div>
+                    <div class="yellow-circle"></div>
+                    <div class="green-circle"></div>
+                    <h1 class="alert"><span class="nerd-icon"> </span>Read-Only Mode</h1>
+                    <h1>SACode 1.0</h1>
+                </div>
+                <div id="header-right">
+                </div>
+        </header>
+        <main id="main-content">
+            <nav id="sidebar">
+                <p><span class="nerd-icon"> </span>SACode</p>
+                <ul>
+                    <li class="focused"><a href="index.html"><span class="nerd-icon md-icon"> </span>index.md</a></li>
+                    <li><a href="about.html"><span class="nerd-icon md-icon"> </span>about.md</a></li>
+                    <li><a href="projects.html"><span class="nerd-icon md-icon"> </span>projects.md</a></li>
+                    <li><a href="contact.html"><span class="nerd-icon md-icon"> </span>contact.md</a></li>
+                </ul>
+            </nav>
+            <section id="content">
+                <div id="file-tab-bar">
+                    <div id="navigation-arrows">
+                        <span class="nerd-icon"></span>
+                        <span class="nerd-icon"></span>
+                    </div>
+                    <div class="file-tab file-tab-focused">
+                        <a href="index.html">index.md</a>
+                    </div>
+                    <div class="file-tab">
+                        <a href="about.html">about.md</a>
+                    </div>
+                    <div class="file-tab">
+                        <a href="projects.html">projects.md</a>
+                    </div>
+                    <div class="file-tab">
+                        <a href="contact.html">contact.md</a>
+                    </div>
+                </div>
+
+                <article id="text" spellcheck="false">
+                    <h2 class="green"><span class="dim">#</span>Contact Me</h2>
+
+                    <form>
+                        <div class="form-field">
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" placeholder="someone@example.com">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" placeholder="Enter subject">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" placeholder="Enter message"></textarea>
+                        </div>
+
+                        <span id="error-msg" class="red"></span>
+
+                        <button type="submit" id="submit-button">Submit</button>
+                    </form>
+
+                </article>
+
+                <section id="terminal">
+                    <div id="terminal-tab-bar">
+                        <div class="terminal-tab">
+                            SACode - shell
+                        </div>
+                    </div>
+                    <div id="terminal-content">
+                        <span class="green">Press 'J' to toggle terminal</span><br>
+                        <br>
+
+                        <div class="prompt">
+                            <label for="terminal-input" class="blue">shell$</label>
+                            <input type="text" id="terminal-input" spellcheck="false">
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <div id="footer-div">
+                <div id="footer-left">
+                    <span class="nerd-icon"> </span
+                    ><a href="#">GitHub</a>
+
+                    <span class="nerd-icon"> </span
+                    ><a href="#">LinkedIn</a>
+                </div>
+
+                <div id="footer-right">
+                    <div id="vim-normal">
+                        NORMAL
+                    </div>
+                    <div id="markdown-text">
+                        Markdown
+                    </div>
+
+                    <div id="footer-icons">
+                        <span class="nerd-icon" onclick="toggleTerminal()"> </span>
+                        <span class="nerd-icon" id="switch-theme"></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="scripts.js"></script>
+        <script src="form.js"></script>
+    </body>
+</html>

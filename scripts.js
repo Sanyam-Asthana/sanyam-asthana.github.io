@@ -232,5 +232,3 @@ targetSections.forEach(section => {
     observer.observe(section);
 });
 
-
-
