@@ -1,38 +1,58 @@
-const texts = ['A systems programmer', 'A cybersecurity enthusiast', 'An AI/ML enjoyer', 'A linguist']
+class TypeWriter {
+    constructor(config) {
+        this.texts = config.strings;
+        this.typingObject = document.getElementById(config.elementId);
 
-function typeText(texts, index) {
-
-    if(index === texts.length) {
-        index = 0;
+        this.speed = config.typingSpeed || 100;
+        this.pause = config.pauseTime || 500;
     }
 
-    const typingObject = document.getElementById('typing-text');
-    const currentText = texts[index];
-    let strlen = currentText.length
-    let s = ''
+    typeText(index) {
+        if(index === this.texts.length) {
+            index = 0;
+        }
 
-    for(let i = 0; i < currentText.length; i++) {
-        setTimeout(() => {
-            s += currentText[i]
-            typingObject.innerHTML = s
-        }, 100 * i) // multiplied by i for timing order
+        const currentText = this.texts[index];
+        let strlen = currentText.length;
+        let s = '';
+
+        for(let i = 0; i < currentText.length; i++) {
+            setTimeout(() => {
+                s += currentText[i];
+                this.typingObject.innerHTML = s;
+            }, this.speed * i); // multiplied by i for timing order
+        }
+
+        for(let i = 0; i < currentText.length; i++) {
+            setTimeout(() => {
+                s = s.slice(0, s.length - 1);
+                this.typingObject.innerHTML = s;
+
+                if (i === strlen - 1) {
+                    setTimeout(() => {
+                        this.typeText(index + 1);
+                    }, this.pause);
+                }
+
+            }, this.speed * (i + strlen + 3));
+        }
     }
 
-    for(let i = 0; i < currentText.length; i++) {
-        setTimeout(() => {
-            s = s.slice(0, s.length - 1)
-            typingObject.innerHTML = s
-
-            if (i === strlen - 1) {
-                // Wait half a second, then trigger the next word!
-                setTimeout(() => {
-                    typeText(texts, index + 1);
-                }, 500);
-            }
-
-        }, 100 * (i + strlen + 3))
+    start() {
+        this.typeText(0);
     }
-
 }
 
-typeText(texts, 0)
+const myTypingEffect = new TypeWriter({
+    elementId: 'typing-text',
+    strings: [
+        'A systems programmer',
+        'A cybersecurity enthusiast',
+        'An AI/ML enjoyer',
+        'A linguist'
+    ],
+    typingSpeed: 100,
+    pauseTime: 500
+});
+
+myTypingEffect.start();
