@@ -33,6 +33,12 @@
     --text-lg: 40px;
     --text-xl: 50px;
     --text-2xl: 60px;
+
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
 } /* All colors and text sizes defined here */
 
 [data-theme="monokai"] {
@@ -66,6 +72,12 @@
     --text-lg: 40px;
     --text-xl: 50px;
     --text-2xl: 60px;
+
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
 } /* Monokai Theme */
 
 [data-theme="github-light"] {
@@ -99,6 +111,12 @@
     --text-lg: 40px;
     --text-xl: 50px;
     --text-2xl: 60px;
+
+    --space-2xs: 4px;
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
 } /* GitHub Light Theme */
 
 @font-face { /* JetBrains Supremacy */
@@ -127,36 +145,37 @@
 }
 
 body {
-    margin: 0; /* The body imposes some amount of margin by default, so we reset it to 0 */
-    font-family: 'JetBrainsMono Nerd Font'; /* My favorite font, and now yours too, without questions */
+    margin: 0;
+    font-family: Helvetica, 'Arial', sans-serif;
     color: var(--primary-text);
-    height: 100dvh; /* The body extends all the way down so the sidebar and main content fill all the page. dvh is dynamic viewport height, and it makes it work on mobile UIs */
-    display: flex; /* So we can tell main-content to take all the space */
-    flex-direction: column; /* Vertical stacking */
-    overflow: hidden; /* Makes so the body itself does not scroll when there's an overflow */
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     background-color: var(--content-bg-color);
 }
 
 a {
     color: var(--primary-text);
-    text-decoration: underline; /* To hide the default underline of links */
+    text-decoration: underline;
 }
 
 header {
-    display: flex; /* To stack items horizontally */
-    justify-content: space-between; /* To keep both children divs as apart form each other as possible */
-    align-items: center; /* To vertically center the items */
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-2xs);
+    padding-bottom: var(--space-2xs);
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
     background-color: var(--header-bg-color);
     border-bottom: 1px solid var(--primary-border);
+    font-family: "JetBrainsMono Nerd Font", "Arial", sans-serif;
 }
 
 @media screen and (max-width: 395px) {
     header {
-        display: none; /* Hide the header on narrow screens */
+        display: none;
     }
 }
 
@@ -180,54 +199,54 @@ header {
 }
 
 #header-left {
-    display: flex; /* To stack children items horizontally */
-    align-items: center; /* To vertically center the items */
-    gap: 2px; /* Gap between children items */
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
 }
 
 #header-right {
-    display: flex; /* To stack children items horizontally */
-    align-items: center; /* To vertically center the items */
-    gap: 2px; /* Gap between children items */
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
 }
 
 #header-left h1 {
-    font-weight: normal; /* Makes the headings not bold */
-    margin: 0px; /* Headings have default margins for some reason */
-    margin-left: 10px;
+    font-weight: normal;
+    margin: 0px;
+    margin-left: var(--space-xs);
     font-size: var(--text-2xs);
-    line-height: 1; /* To reduce the vertical space around the heading */
+    line-height: 1;
 }
 
 .red-circle {
     width: 12px;
     height: 12px;
     background-color: var(--red-circle);
-    border-radius: 100px; /* Makes it a circle for that MacOS vibe */
-    margin-right: 5px;
+    border-radius: 100px;
+    margin-right: var(--space-2xs);
 }
 
 .yellow-circle {
     width: 12px;
     height: 12px;
     background-color: var(--yellow-circle);
-    border-radius: 100px; /* Makes it a circle for that MacOS vibe */
-    margin-right: 5px;
+    border-radius: 100px;
+    margin-right: var(--space-2xs);
 }
 
 .green-circle {
     width: 12px;
     height: 12px;
     background-color: var(--green-circle);
-    border-radius: 100px; /* Makes it a circle for that MacOS vibe */
-    margin-right: 5px;
+    border-radius: 100px;
+    margin-right: var(--space-2xs);
 }
 
 #main-content {
-    display: flex; /* To stack sidebar and content horizontally */
-    flex: 1; /* To extend the main content all the way downward */
-    overflow: hidden; /* Makes so the content does not scroll when there's an overflow */
-    min-height: 0px; /* The children will overflow without this */
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0px;
 }
 
 #sidebar {
@@ -238,27 +257,27 @@ header {
 
 @media screen and (max-width: 768px) {
     #sidebar {
-        display: none; /* Hide the sidebar when the screen is narrow */
-        width: 0%; /* Without this, the sidebar hides, but leaves empty white space, so we just squash it down to 0 width */
+        display: none;
+        width: 0%;
     }
 }
 
 #content {
     width: 83.5%;
     background-color: var(--content-bg-color);
-    display: flex; /* Making it a flex for reasons apparent later */
-    flex-direction: column; /* Stack file tab bar and text area vertically */
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
     #content {
-        width: 100%; /* Take up the full width of the screen when the sidebar is hidden */
+        width: 100%;
     }
 }
 
 #sidebar ul {
-    list-style: none; /* To hide the bullet points */
+    list-style: none;
     padding: 0px;
     margin: 0px;
 }
@@ -270,9 +289,9 @@ header {
 }
 
 #sidebar li {
-    padding: 2px 20px;
+    padding: var(--space-2xs) var(--space-md);
     text-decoration: none;
-    margin: 4px 0px; /* For that indentation effect in the folder structure */
+    margin: var(--space-2xs) 0px;
     font-size: var(--text-xs);
 }
 
@@ -285,7 +304,8 @@ header {
 }
 
 .nerd-icon {
-    padding: 0px 5px;
+    padding: 0px var(--space-2xs);
+    font-family: "JetBrainsMono Nerd Font", Arial, sans-serif;
 }
 
 .md-icon {
@@ -300,36 +320,40 @@ header {
     color: var(--alert-text-color);
     background-color: var(--alert-bg-color);
     border-radius: 5px;
-    padding: 5px;
+    padding: var(--space-2xs);
 }
 
 #file-tab-bar {
     background-color: var(--header-bg-color);
     color: var(--primary-text);
     display: flex;
-    align-items: center; /* Aligning items to the center vertically */
+    align-items: center;
     border-bottom: 1px solid var(--accent-color);
+}
+
+#file-tab-bar a {
+    text-decoration: none;
 }
 
 #navigation-arrows {
     border-right: 1px solid var(--primary-border);
-    padding: 8px;
-    padding-right: 8px;
-    padding-left: 4px;
+    padding: var(--space-xs);
+    padding-right: var(--space-xs);
+    padding-left: var(--space-2xs);
 }
 
 @media screen and (max-width: 768px) {
     #navigation-arrows {
-        display: none; /* Hide the navigation arrows on narrow screens */
+        display: none;
     }
 }
 
 .file-tab {
     background-color: var(--file-tab-deselected);
-    align-self: stretch; /* This stretches the file tab to fill the vertical space of the file tab bar completely */
-    display: flex; /* Needed for align-self: stretch */
-    align-items: center; /* Vertically centers the file tab content */
-    padding: 8px 14px;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: var(--space-xs) var(--space-sm);
     border-right: 1px solid var(--primary-border);
 }
 
@@ -338,19 +362,20 @@ header {
 }
 
 #text {
-    padding-top: 25px;
-    margin-left: 25px;
-    margin-right: 25px;
+    padding-top: var(--space-md);
+    margin-left: var(--space-md);
+    margin-right: var(--space-md);
     font-size: var(--text-sm);
-    overflow-y: auto; /* So only this text area scrolls */
-    flex: 1; /* Takes up all available vertical space. This is why content was a flex */
+    overflow-y: auto;
+    flex: 1;
+    font-family: JetBrainsMono Nerd Font, Arial, sans-serif;
 }
 
 @media screen and (max-width: 768px) {
     #project-cards {
         display: flex;
         flex-direction: column;
-        align-items: center; /* aligns the cards horizontally so they don't flow. yes the code is bad */
+        align-items: center;
         width: 100%;
         margin: 0;
         padding: 0;
@@ -359,7 +384,7 @@ header {
 
 .dim {
     color: var(--dim-text);
-    margin-right: 15px;
+    margin-right: var(--space-sm);
 }
 
 .dim-inline {
@@ -367,46 +392,47 @@ header {
 }
 
 #footer-div {
-    display: flex; /* To stack items horizontally */
-    justify-content: space-between; /* To keep both children divs as apart form each other as possible */
-    align-items: center; /* To vertically center the items */
-    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2xs) var(--space-xs);
     background-color: var(--header-bg-color);
     border-top: 1px solid var(--primary-border);
+    font-family: 'JetBrainsMono Nerd Font', Arial, sans-serif;
 }
 
 #footer-left {
-    display: flex; /* To stack children items horizontally */
-    align-items: center; /* To vertically center the items */
-    gap: 2px; /* Gap between children items */
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
 }
 
 #footer-right {
-    display: flex; /* To stack children items horizontally */
-    align-items: center; /* To vertically center the items */
-    gap: 10px; /* Gap between children items */
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
 }
 
 #footer-left h1 {
-    font-weight: normal; /* Makes the headings not bold */
-    margin: 0px; /* Headings have default margins for some reason */
-    margin-left: 10px;
+    font-weight: normal;
+    margin: 0px;
+    margin-left: var(--space-xs);
     font-size: var(--text-2xs);
-    line-height: 1; /* To reduce the vertical space around the heading */
+    line-height: 1;
 }
 
 #vim-normal {
     background-color: var(--vim-normal-bg);
     color: var(--footer-bg-color);
-    padding: 2px 10px;
+    padding: var(--space-2xs) var(--space-xs);
     border-radius: 5px;
 }
 
 #markdown-text {
     border-right: 1px solid var(--primary-border);
-    padding-right: 10px;
+    padding-right: var(--space-xs);
     display: flex;
-    align-self: stretch; /* Stretched to fill the div */
+    align-self: stretch;
     align-items: center;
 }
 
@@ -424,7 +450,7 @@ header {
 
 .content-box {
     border: 1.75px solid var(--syntax-blue);
-    padding: 10px;
+    padding: var(--space-xs);
 }
 
 .bold {
@@ -434,15 +460,15 @@ header {
 
 #text h1 {
     margin: 0px;
-    margin-top: 10px;
-    margin-bottom: 25px;
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-md);
     line-height: 1;
 }
 
 #text h2 {
     margin: 0px;
-    margin-top: 10px;
-    margin-bottom: 25px;
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-md);
     line-height: 1;
 }
 
@@ -454,7 +480,7 @@ header {
 .bold-md::after {
     content: "**";
     color: var(--dim-text);
-    font-weight: normal; /* This part injects the '**' into the HTML, which avoids the sheer unreadbility otherwise */
+    font-weight: normal;
 }
 
 #terminal {
@@ -463,6 +489,7 @@ header {
     overflow: auto;
     resize: vertical;
     transition: height 0.4s ease-in-out !important;
+    font-family: 'JetBrainsMono Nerd Font', 'Arial', 'sans-serif';
 }
 
 #terminal-tab-bar {
@@ -475,36 +502,29 @@ header {
 
 #terminal-content {
     background-color: var(--content-bg-color);
-    padding: 10px;
+    padding: var(--space-xs);
     outline: none;
     overflow-y: auto;
-    height: calc(100% - 60px); /* Fixing the height so the terminal doesn't grow in size */
+    height: calc(100% - 60px);
 }
 
 .terminal-tab {
     background-color: var(--content-bg-color);
-    align-self: stretch; /* This stretches the file tab to fill the vertical space of the file tab bar completely */
-    display: flex; /* Needed for align-self: stretch */
-    align-items: center; /* Vertically centers the file tab content */
-    padding: 8px 14px;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: var(--space-xs) var(--space-sm);
     border-right: 1px solid var(--primary-border);
 }
 
-/* These few classes exist to support the toggleable functionality */
 .hidden {
-    /*display: none !important;*/
     height: 0 !important;
     overflow: hidden !important;
-    /*width: 0 !important;*/
 }
 
-/* The two hidden classes have been split because the terminal transition was being messed up */
-
 .hidden-sideways {
-    /*display: none !important;*/
     width: 0 !important;
     overflow: hidden !important;
-    /*width: 0 !important;*/
 }
 
 .forceshow {
@@ -512,7 +532,7 @@ header {
 }
 
 .full-width {
-    width: 100% !important; /* Override any existing width */
+    width: 100% !important;
 }
 
 @keyframes cursor-blink {
@@ -546,11 +566,11 @@ header {
 }
 
 .prompt {
-    gap: 10px;
+    gap: var(--space-xs);
     display: flex;
     align-items: center;
-    white-space: pre-wrap; /* Arch logo doesn't look good without this, because the div doesn't preserve spaces, so the formatting messes up */
-    word-wrap: break-word; /* The classic terminal word wrap break */
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .fullscreen {
@@ -566,41 +586,39 @@ h3 {
 }
 
 #timeline-content {
-    margin-top: 20px;
+    margin-top: var(--space-md);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--space-md);
     width: 100%;
-    /*justify-content: space-between;*/
-    margin-bottom: 20px;
+    margin-bottom: var(--space-md);
 }
 
 @media screen and (max-width: 768px) {
     #timeline-content {
-        margin-top: 20px;
+        margin-top: var(--space-md);
         display: flex;
         flex-direction: column;
-        /*justify-content: space-between;*/
-        gap: 1.5rem;
+        gap: var(--space-md);
         justify-content: center;
-        align-items: center; /* Align items to center for narrow screens */
+        align-items: center;
     }
 }
 
 .timeline-card {
     text-align: center;
-    padding: 20px;
+    padding: var(--space-md);
     border: 1.75px solid var(--syntax-blue);
     width: 60%;
-    box-shadow: 5px 5px 0px 0px var(--syntax-blue); /* 3D effect */
-    transition: all 0.3s ease; /* for scroll reveal */
-    margin-left: 20px;
-    margin-right: 20px;
+    box-shadow: 5px 5px 0px 0px var(--syntax-blue);
+    transition: all 0.3s ease;
+    margin-left: var(--space-md);
+    margin-right: var(--space-md);
 }
 
 .timeline-card:hover {
     box-shadow: 0px 0px 0px 0px;
-    transform: translateX(5px) translateY(5px); /* Push button effect */
+    transform: translateX(5px) translateY(5px);
     transition: all 0.3s ease;
 }
 
@@ -613,13 +631,13 @@ h3 {
 }
 
 .timeline-card p {
-    max-height: 0; /* max-height transitions smoothly as opposed to height */
+    max-height: 0;
     opacity: 0;
     transition: all 0.3s ease;
 }
 
 .timeline-card:hover p {
-    max-height: 200px; /* a value greater than the any other paragraph */
+    max-height: 200px;
     opacity: 1;
     transition: all 0.3s ease;
 }
@@ -631,8 +649,8 @@ h3 {
 
 .reveal-section {
     opacity: 0;
-    width: 10%; /* Start at 10% of width */
-    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Custom transition curve */
+    width: 10%;
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .timeline-left {
@@ -652,15 +670,15 @@ h3 {
 .project-card {
     border: 1.75px solid var(--syntax-blue);
     width: 80%;
-    padding: 20px;
-    box-shadow: 5px 5px 0px 0px var(--syntax-blue); /* 3D effect */
-    transition: all 0.3s ease; /* for scroll reveal */
-    margin: 40px;
+    padding: var(--space-md);
+    box-shadow: 5px 5px 0px 0px var(--syntax-blue);
+    transition: all 0.3s ease;
+    margin: var(--space-lg);
 }
 
 .project-card:hover {
     box-shadow: 0px 0px 0px 0px;
-    transform: translateX(5px) translateY(5px); /* Push button effect */
+    transform: translateX(5px) translateY(5px);
     transition: all 0.3s ease;
 }
 
@@ -684,7 +702,7 @@ h3 {
 
 .project-card ul {
     display: flex;
-    gap: 20px;
+    gap: var(--space-md);
     list-style: none;
     padding: 0;
     flex-wrap: wrap;
@@ -720,9 +738,9 @@ h3 {
 .selector-tags {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: var(--space-xs);
     flex-wrap: wrap;
-    row-gap: 20px;
+    row-gap: var(--space-md);
 }
 
 .selector-tag input {
@@ -733,7 +751,7 @@ h3 {
 .selector-tag label {
     border: 1.75px solid var(--syntax-blue);
     color: var(--syntax-blue);
-    padding: 5px;
+    padding: var(--space-2xs);
     cursor: pointer;
 }
 
@@ -768,16 +786,18 @@ h3 {
     line-height: 1;
     margin: 0;
     animation: slide-up 1s ease-in;
-    animation-fill-mode: backwards; /* "fills" the element animation before the animation starts with the initial keyframe */
+    animation-fill-mode: backwards;
 }
 
-#hero h2 {
+#hero h3 {
+    font-size: var(--text-lg);
     animation: slide-up 1s ease-in;
     animation-delay: 1s;
     animation-fill-mode: backwards;
 }
 
-#hero h3 {
+#hero h2 {
+    font-size: var(--text-md);
     animation: slide-up 1s ease-in;
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
@@ -786,6 +806,10 @@ h3 {
 @media screen and (max-width: 768px) {
     #hero h1 {
         font-size: var(--text-lg);
+    }
+
+    #hero h3 {
+        font-size: var(--text-md);
     }
 }
 
@@ -821,7 +845,7 @@ form input[type=text] {
     border: 1.75px solid var(--syntax-blue);
     color: var(--primary-text);
     font-family: 'JetBrainsMono Nerd Font', Arial, sans-serif;
-    padding: 5px;
+    padding: var(--space-2xs);
     width: 50ch;
     outline: none;
 }
@@ -842,7 +866,7 @@ textarea {
     border: 1.75px solid var(--syntax-blue);
     color: var(--primary-text);
     font-family: 'JetBrainsMono Nerd Font', Arial, sans-serif;
-    padding: 5px;
+    padding: var(--space-2xs);
     width: 42ch;
     height: 30ch;
     outline: none;
@@ -862,14 +886,14 @@ textarea:focus-visible {
 .form-field {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-xs);
 }
 
 form {
-    margin-left: 10px;
+    margin-left: var(--space-xs);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--space-md);
 }
 
 form button {
@@ -878,7 +902,7 @@ form button {
     border: 1.75px solid var(--syntax-blue);
     width: fit-content;
     font-family: 'JetBrainsMono Nerd Font', Arial, sans-serif;
-    padding: 5px;
+    padding: var(--space-2xs);
     font-size: var(--text-2xs);
 }
 
@@ -889,7 +913,7 @@ form button:hover {
 
 #submit-popup {
     position: fixed;
-    padding: 10px;
+    padding: var(--space-xs);
     font-size: var(--text-xl);
     border: 1.75px solid var(--syntax-blue);
     color: var(--syntax-green);
@@ -904,7 +928,7 @@ form button:hover {
 
 @keyframes slide-up {
     from {
-        transform: translateY(20px);
+        transform: translateY(var(--space-md));
         opacity: 0;
     }
 
@@ -912,4 +936,9 @@ form button:hover {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+#pfp {
+    width: 150px;
+    border-radius: 100px;
 }
