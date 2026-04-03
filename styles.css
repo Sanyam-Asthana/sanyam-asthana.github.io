@@ -767,6 +767,20 @@ h3 {
     font-size: var(--text-2xl);
     line-height: 1;
     margin: 0;
+    animation: slide-up 1s ease-in;
+    animation-fill-mode: backwards; /* "fills" the element animation before the animation starts with the initial keyframe */
+}
+
+#hero h2 {
+    animation: slide-up 1s ease-in;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
+
+#hero h3 {
+    animation: slide-up 1s ease-in;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
 }
 
 @media screen and (max-width: 768px) {
@@ -886,4 +900,16 @@ form button:hover {
 #submit-popup::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
