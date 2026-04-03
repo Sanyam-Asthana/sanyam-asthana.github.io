@@ -45,7 +45,7 @@ document.addEventListener('keydown', (e) => { // Adding a keydown listener
       text_object.classList.toggle('hidden'); // Hide the text area to hide the 25px padding
     }
     if (e.key === 'b') {
-      side_bar_object.classList.toggle('hidden'); // Toggle the hidden class
+      side_bar_object.classList.toggle('hidden-sideways'); // Toggle the hidden class
       content_object.classList.toggle('full-width'); // Toggle full width
     }
 });

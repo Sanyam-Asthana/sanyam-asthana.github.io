@@ -47,7 +47,7 @@ const myTypingEffect = new TypeWriter({
     elementId: 'typing-text',
     strings: [
         'A systems programmer',
-        'A cybersecurity enthusiast',
+        'A security enthusiast',
         'An AI/ML enjoyer',
         'A linguist'
     ],

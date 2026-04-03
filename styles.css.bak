@@ -26,14 +26,8 @@
     --syntax-red: #e78284;
     --syntax-blue: #8caaee;
 
-    --text-2xs: 14px;
-    --text-xs: 16px;
-    --text-sm: 18px;
-    --text-md: 24px;
-    --text-lg: 40px;
-    --text-xl: 50px;
-    --text-2xl: 60px;
-} /* All colors and text sizes defined here */
+    --text-sm: 16px;
+} /* All colors defined here */
 
 [data-theme="monokai"] {
     --header-bg-color: rgb(60, 58, 62);
@@ -58,14 +52,6 @@
     --syntax-green: rgb(179, 219, 130);
     --syntax-red: rgb(237, 108, 137);
     --syntax-blue: rgb(145, 218, 230);
-
-    --text-2xs: 14px;
-    --text-xs: 16px;
-    --text-sm: 18px;
-    --text-md: 24px;
-    --text-lg: 40px;
-    --text-xl: 50px;
-    --text-2xl: 60px;
 } /* Monokai Theme */
 
 [data-theme="github-light"] {
@@ -91,14 +77,6 @@
     --syntax-green: rgb(45, 97, 48);
     --syntax-red: rgb(190, 53, 54);
     --syntax-blue: rgb(33, 79, 168);
-
-    --text-2xs: 14px;
-    --text-xs: 16px;
-    --text-sm: 18px;
-    --text-md: 24px;
-    --text-lg: 40px;
-    --text-xl: 50px;
-    --text-2xl: 60px;
 } /* GitHub Light Theme */
 
 @font-face { /* JetBrains Supremacy */
@@ -195,7 +173,7 @@ header {
     font-weight: normal; /* Makes the headings not bold */
     margin: 0px; /* Headings have default margins for some reason */
     margin-left: 10px;
-    font-size: var(--text-2xs);
+    font-size: 14px;
     line-height: 1; /* To reduce the vertical space around the heading */
 }
 
@@ -237,10 +215,10 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-    #sidebar {
-        display: none; /* Hide the sidebar when the screen is narrow */
-        width: 0%; /* Without this, the sidebar hides, but leaves empty white space, so we just squash it down to 0 width */
-    }
+  #sidebar {
+      display: none; /* Hide the sidebar when the screen is narrow */
+      width: 0%; /* Without this, the sidebar hides, but leaves empty white space, so we just squash it down to 0 width */
+  }
 }
 
 #content {
@@ -252,9 +230,9 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-    #content {
-        width: 100%; /* Take up the full width of the screen when the sidebar is hidden */
-    }
+  #content {
+      width: 100%; /* Take up the full width of the screen when the sidebar is hidden */
+  }
 }
 
 #sidebar ul {
@@ -266,14 +244,14 @@ header {
 #sidebar p {
     padding: 0px;
     margin: 0px;
-    font-size: var(--text-xs);
+    font-size: 16px;
 }
 
 #sidebar li {
     padding: 2px 20px;
     text-decoration: none;
     margin: 4px 0px; /* For that indentation effect in the folder structure */
-    font-size: var(--text-xs);
+    font-size: 16px;
 }
 
 #sidebar li:hover {
@@ -341,12 +319,17 @@ header {
     padding-top: 25px;
     margin-left: 25px;
     margin-right: 25px;
-    font-size: var(--text-sm);
+    font-size: 18px;
     overflow-y: auto; /* So only this text area scrolls */
     flex: 1; /* Takes up all available vertical space. This is why content was a flex */
 }
 
 @media screen and (max-width: 768px) {
+    /*#text {*/
+    /*    margin-left: 0;*/
+    /*    margin-right: 0;*/
+    /*}*/
+
     #project-cards {
         display: flex;
         flex-direction: column;
@@ -391,7 +374,7 @@ header {
     font-weight: normal; /* Makes the headings not bold */
     margin: 0px; /* Headings have default margins for some reason */
     margin-left: 10px;
-    font-size: var(--text-2xs);
+    font-size: 14px;
     line-height: 1; /* To reduce the vertical space around the heading */
 }
 
@@ -462,7 +445,6 @@ header {
     height: 275px;
     overflow: auto;
     resize: vertical;
-    transition: height 0.4s ease-in-out !important;
 }
 
 #terminal-tab-bar {
@@ -494,17 +476,7 @@ header {
 .hidden {
     /*display: none !important;*/
     height: 0 !important;
-    overflow: hidden !important;
-    /*width: 0 !important;*/
-}
-
-/* The two hidden classes have been split because the terminal transition was being messed up */
-
-.hidden-sideways {
-    /*display: none !important;*/
     width: 0 !important;
-    overflow: hidden !important;
-    /*width: 0 !important;*/
 }
 
 .forceshow {
@@ -532,7 +504,7 @@ header {
     outline: none;
     width: 100%;
     font-family: 'JetBrainsMono Nerd Font';
-    font-size: var(--text-xs);
+    font-size: 16px;
 }
 
 .old-input {
@@ -542,7 +514,7 @@ header {
     outline: none;
     width: 100%;
     font-family: 'JetBrainsMono Nerd Font';
-    font-size: var(--text-xs);
+    font-size: 16px;
 }
 
 .prompt {
@@ -558,11 +530,11 @@ header {
 }
 
 h2 {
-    font-size: var(--text-lg);
+    font-size: 40px;
 }
 
 h3 {
-    font-size: var(--text-md);
+    font-size: 24px;
 }
 
 #timeline-content {
@@ -764,14 +736,14 @@ h3 {
 
 #hero h1 {
     color: var(--syntax-green);
-    font-size: var(--text-2xl);
+    font-size: 60px;
     line-height: 1;
     margin: 0;
 }
 
 @media screen and (max-width: 768px) {
     #hero h1 {
-        font-size: var(--text-lg);
+        font-size: 40px;
     }
 }
 
@@ -791,10 +763,10 @@ h3 {
 
 @media screen and (max-width: 768px) {
     #typing-text {
-        font-size: var(--text-md);
+        font-size: 24px;
     }
     #cursor {
-        font-size: var(--text-md);
+        font-size: 24px;
     }
 }
 
@@ -802,7 +774,7 @@ h3 {
     animation: cursor-blink 1s infinite;
 }
 
-form input[type=text] {
+input[type=text] {
     background-color: var(--content-bg-color);
     border: 1.75px solid var(--syntax-blue);
     color: var(--primary-text);
@@ -813,12 +785,12 @@ form input[type=text] {
 }
 
 @media screen and (max-width: 768px) {
-    form input[type=text] {
+    input[type=text] {
         width: 40ch;
     }
 }
 
-form input[type=text]:focus-visible {
+input[type=text]:focus-visible {
     outline: 1.75px solid var(--syntax-red);
     outline-offset: 2px;
 }
@@ -865,7 +837,7 @@ form button {
     width: fit-content;
     font-family: 'JetBrainsMono Nerd Font', Arial, sans-serif;
     padding: 5px;
-    font-size: var(--text-2xs);
+    font-size: 14px;
 }
 
 form button:hover {
@@ -876,7 +848,7 @@ form button:hover {
 #submit-popup {
     position: fixed;
     padding: 10px;
-    font-size: var(--text-xl);
+    font-size: 50px;
     border: 1.75px solid var(--syntax-blue);
     color: var(--syntax-green);
     background-color: var(--content-bg-color);
