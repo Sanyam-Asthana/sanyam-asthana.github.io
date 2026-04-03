@@ -842,3 +842,18 @@ form button:hover {
     background-color: var(--syntax-blue);
     color: var(--content-bg-color) !important;
 }
+
+#submit-popup {
+    position: fixed;
+    padding: 10px;
+    font-size: 50px;
+    border: 1.75px solid var(--syntax-blue);
+    color: var(--syntax-green);
+    background-color: var(--content-bg-color);
+    cursor: pointer;
+}
+
+#submit-popup::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
